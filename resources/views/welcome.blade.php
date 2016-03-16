@@ -38,7 +38,7 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Laravel 5</div>
+                <div class="title">Bienvenido a CommerzCargo(Alpha 1.0)</div>
             </div>
         </div>
     </body>
