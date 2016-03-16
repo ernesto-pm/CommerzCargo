@@ -21,7 +21,7 @@ class CreateCarriersTable extends Migration
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno');
             $table->string('domicilio');
-            $table->int('cantidadCamiones');
+            $table->integer('cantidadCamiones');
             $table->rememberToken();
             $table->timestamps();
         });

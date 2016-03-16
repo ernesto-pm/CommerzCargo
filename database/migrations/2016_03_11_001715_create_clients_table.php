@@ -21,7 +21,7 @@ class CreateClientsTable extends Migration
           $table->string('apellidoMaterno');
           $table->string('domicilio');
           $table->string('correo')->unique();
-          $table->int('telefono');
+          $table->integer('telefono');
           $table->rememberToken();
           $table->timestamps();
       });
