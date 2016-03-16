@@ -8,13 +8,13 @@ Route::group(['middleware' => 'web'], function () {
 
     //Enseña la pagina inicial
     Route::get('/', function () {
-        return view('welcome');
+        return view('clients');
     });
 
     /**
      * Add New Task
      */
-    Route::post('/task', function (Request $request) {
+    Route::post('/client', function (Request $request) {
         //
     });
 
