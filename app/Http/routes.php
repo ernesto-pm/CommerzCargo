@@ -8,7 +8,7 @@ Route::group(['middleware' => 'web'], function () {
 
     //Enseña la pagina inicial
     Route::get('/', function () {
-        return view('tasks');
+        return view('welcome');
     });
 
     /**
