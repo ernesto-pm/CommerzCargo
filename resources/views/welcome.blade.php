@@ -1,3 +1,7 @@
+@extends('layouts.app')
+
+
+@section('content')
 <!DOCTYPE html>
 <html>
     <head>
@@ -38,8 +42,9 @@
     <body>
         <div class="container">
             <div class="content">
-                <div class="title">Bienvenido a CommerzCargo(Alpha 1.0)</div>
+                <div class="title">CommerzCargo(Alpha 1.0)</div>
             </div>
         </div>
     </body>
 </html>
+@endsection

@@ -5,9 +5,8 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'web'], function () {
 
-    /**
-     * Show Task Dashboard
-     */
+
+    //Enseña la pagina inicial
     Route::get('/', function () {
         return view('welcome');
     });
