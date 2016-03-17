@@ -31,8 +31,12 @@
             <div class="navbar-header">
 
                 <!-- Branding Image -->
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ route('home') }}">
                     Inicio
+                </a>
+
+                <a class="navbar-brand" href="{{ route('clients.index') }}">
+                    Clientes
                 </a>
             </div>
 
