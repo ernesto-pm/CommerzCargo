@@ -204,7 +204,7 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
         'Form' => laravelcollective\html\src\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+        'Html' => laravelcollective\html\src\HtmlFacade::class,
 
     ],
 
