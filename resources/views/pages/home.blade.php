@@ -8,5 +8,6 @@
 
     <a href="{{ route('clients.index') }}" class="btn btn-info">Ver Usuarios</a>
     <a href="{{ route('clients.create') }}" class="btn btn-primary">Añadir nuevo usuario</a>
+    <a href="{{ route('applications.create') }}" class="btn btn-primary">Añadir nueva cotizacion</a>
 
 @endsection

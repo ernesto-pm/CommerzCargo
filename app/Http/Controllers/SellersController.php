@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Client;
+
 use App\Http\Requests;
 
-class ClientsController extends Controller
+class SellersController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,7 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        return view('clients.index');
-        //$users = Client::all();
-        //return $users->toarray();
+        //
     }
 
     /**
@@ -27,7 +25,7 @@ class ClientsController extends Controller
      */
     public function create()
     {
-        return view('clients.create');
+        //
     }
 
     /**
@@ -38,34 +36,7 @@ class ClientsController extends Controller
      */
     public function store(Request $request)
     {
-        //dd($request->all()); //imprime los campos
-        //$cliente = new Client($request->all());
-
-        $this->validate($request, [
-            'nombre' => 'required',
-            'password' => 'required',
-            'rfc' => 'required|numeric',
-            'correo' => 'unique:clients|required|email',
-            'apellidoPaterno' => 'required',
-            'apellidoMaterno' => 'required',
-            'domicilio' => 'required',
-            'telefono' => 'required|numeric'
-        ]);
-
-        $cliente = new Client();
-        $cliente->nombre = $request->nombre;
-        $cliente->password = $request->password;
-        $cliente->rfc = $request->rfc;
-        $cliente->apellidoPaterno = $request->apellidoPaterno;
-        $cliente->apellidoMaterno = $request->apellidoMaterno;
-        $cliente->domicilio = $request->domicilio;
-        $cliente->correo = $request->correo;
-        $cliente->telefono = $request->telefono;
-        $cliente->save();
-
-        //return redirect()->back();
-        return redirect()->route('applications.create');
-
+        //
     }
 
     /**

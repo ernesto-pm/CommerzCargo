@@ -29,5 +29,19 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'PagesController@home'
     ]);
 
+    Route::resource('applications','ApplicationsController');
+    
     Route::resource('clients','ClientsController');
+
+
+    Route::resource('carriers', 'CarriersController');
+
+
+    Route::resource('trucks', 'TrucksController');
+
+
+    Route::resource('sales', 'SalesController');
+
+
+    Route::resource('orders', 'OrdersController');
 });
