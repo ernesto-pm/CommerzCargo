@@ -16,7 +16,10 @@
         <div class="nav navbar-nav navbar-right">
             <li><a href="{{ route('home') }}">Inicio</a></li>
             <li><a href="{{ route('clients.index') }}">Clientes</a></li>
+            <li><a href="{{ route('carriers.create') }}">Conductores</a></li>
         </div>
+
+
     </div>
 </nav>
 

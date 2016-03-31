@@ -36,7 +36,21 @@ class TrucksController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'tipo' => 'required',
+
+
+        ]);
+
+
+        $camion = new Trucks();
+        $camion->tipo = $request->tipo;
+
+
+        $conductor->save();
+
+
+        return redirect()->route('pages.home');
     }
 
     /**

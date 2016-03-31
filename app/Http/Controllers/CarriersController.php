@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-
+use App\Carrier;
 use App\Http\Requests;
 
 class CarriersController extends Controller
@@ -15,7 +15,7 @@ class CarriersController extends Controller
      */
     public function index()
     {
-        //
+        return view('carriers.index');
     }
 
     /**
@@ -25,7 +25,7 @@ class CarriersController extends Controller
      */
     public function create()
     {
-        //
+        return view("carriers.create");
     }
 
     /**
@@ -36,7 +36,31 @@ class CarriersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'password' => 'required',
+            'nombre' => 'required',
+            'apellidoMaterno' => 'required',
+            'apellidoPaterno' => 'required',
+            'correo' => 'required',
+            'zona' => 'required',
+            'domicilio' => 'required',
+            'cantidadCamiones' => 'required|numeric',
+
+        ]);
+
+        $conductor = new Carrier();
+        $conductor->nombre = $request->nombre;
+        $conductor->apellidoPaterno = $request->apellidoPaterno;
+        $conductor->apellidoMaterno = $request->apellidoMaterno;
+        $conductor->domicilio = $request->domicilio;
+        $conductor->correo= $request->correo;
+        $conductor->zona= $request->zona;
+        $conductor->cantidadCamiones = $request->cantidadCamiones;
+
+        $conductor->save();
+
+
+        return redirect()->route('carriers.index');
     }
 
     /**

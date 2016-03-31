@@ -23,7 +23,7 @@
     <!-- Select With One Default -->
    <div class="form-group">
         {!! Form::label('select', 'Selecciona Modo de Empacado', ['class' => 'control-label'] )  !!}
-        {!!  Form::select('modoEmpacado', ['S' => 'Small', 'L' => 'Large', 'XL' => 'Extra Large', '2XL' => '2X Large'],  'S', ['class' => 'form-control' ]) !!}
+        {!!  Form::select('modoEmpacado', ['S' => 'Pallets 48x40', 'L' => 'Pallets 48x48', 'XL' => 'Pallets 60x48'],  'S', ['class' => 'form-control' ]) !!}
 
     </div>
 
@@ -56,7 +56,7 @@
 
     <div class="form-group">
         {!! Form::label('select', 'Selecciona Tipo de Bienes', ['class' => 'control-label'] )  !!}
-        {!!  Form::select('tipoGoods', ['C' => 'calzado', 'S' => 'Sur', 'O' => 'Oriente', 'P' => 'Poniente'],  'S', ['class' => 'form-control' ]) !!}
+        {!!  Form::select('tipoGoods', ['C' => 'calzado', 'A' => 'Alcohol', 'S' => 'Accesorios', 'R' => 'Ropa', 'E' => 'Electronicos', 'B' =>'Comidas/bebidas', 'M' => 'Metales', 'F' => 'farmaceutico'],  'S', ['class' => 'form-control' ]) !!}
 
     </div>
 
