@@ -38,9 +38,6 @@ class ClientsController extends Controller
     }
 
     public function signIn(Request $request){
-
-
-
         if(Auth::attempt(['correo' => $request->correo, 'password' => $request->password])){
             return redirect()->route('dashboard');
         }else{

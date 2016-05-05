@@ -67,9 +67,11 @@
                                 </div>
                             </div>
 
+                            <input type="hidden" name="_token" value="{{Session::token()}}">
+
                             {!! Form::submit('Submit', ['class' => 'btn btn-info btn-block']) !!}
 
-                        <input type="hidden" name="_token" value="{{Session::token()}}">
+
 
                         {!! Form::close() !!}
                     </div>
