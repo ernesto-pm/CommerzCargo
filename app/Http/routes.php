@@ -29,6 +29,8 @@ Route::group(['middleware' => ['web']], function () {
         'uses' => 'PagesController@home'
     ]);
 
+
+
     Route::resource('applications','ApplicationsController');
     
     Route::resource('clients','ClientsController');
@@ -44,4 +46,29 @@ Route::group(['middleware' => ['web']], function () {
 
 
     Route::resource('orders', 'OrdersController');
+
+    Route::get('pages/login','PagesController@login') -> name('login');
+
+    Route::get('clients/successful','ClientsController@successful') -> name('successful');
+
+    Route::get('/dashboard',[
+        'uses' => 'ClientsController@getDashboard',
+        'as' => 'dashboard'
+    ]);
+
+    Route::post('/signIn',[
+        'uses' => 'ClientsController@signIn',
+        'as' => 'signin'
+    ]);
+
+
+    /*Route::resource('clients/successful', 'ClientsController@successful',function(){
+        return 'hola';
+    }) -> name('clients.successful');
+    */
+    //Route::resource('successful', 'ClientsController');
+
 });
+
+
+

@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Client;
 use App\Http\Requests;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\MessageBag;
 
 class ClientsController extends Controller
 {
@@ -15,9 +17,14 @@ class ClientsController extends Controller
      */
     public function index()
     {
-        return view('clients.index');
+
+        //return view('clients.successful');
         //$users = Client::all();
         //return $users->toarray();
+        //echo $clients;
+
+        $clients = Client::all();
+        return view('clients.index',['clients' => $clients]);
     }
 
     /**
@@ -28,6 +35,18 @@ class ClientsController extends Controller
     public function create()
     {
         return view('clients.create');
+    }
+
+    public function signIn(Request $request){
+
+
+
+        if(Auth::attempt(['correo' => $request->correo, 'password' => $request->password])){
+            return redirect()->route('dashboard');
+        }else{
+            return redirect()->back();
+        }
+
     }
 
     /**
@@ -54,7 +73,7 @@ class ClientsController extends Controller
 
         $cliente = new Client();
         $cliente->nombre = $request->nombre;
-        $cliente->password = $request->password;
+        $cliente->password = bcrypt($request->password);
         $cliente->rfc = $request->rfc;
         $cliente->apellidoPaterno = $request->apellidoPaterno;
         $cliente->apellidoMaterno = $request->apellidoMaterno;
@@ -64,7 +83,9 @@ class ClientsController extends Controller
         $cliente->save();
 
         //return redirect()->back();
-        return redirect()->route('applications.create');
+        //return redirect()->route('clients.succesful');
+        //return redirect()->route('clients.index');
+        return view('pages.home');
 
     }
 
@@ -76,7 +97,7 @@ class ClientsController extends Controller
      */
     public function show($id)
     {
-        //
+
     }
 
     /**
@@ -100,6 +121,15 @@ class ClientsController extends Controller
     public function update(Request $request, $id)
     {
         //
+    }
+    public function getDashboard(){
+        return view('dashboard');
+    }
+
+
+    public function successful(){
+        return view('clients.successful');
+        //return 'Hola';
     }
 
     /**

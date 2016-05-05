@@ -42,9 +42,12 @@ class CarriersController extends Controller
             'apellidoMaterno' => 'required',
             'apellidoPaterno' => 'required',
             'correo' => 'required',
-            'zona' => 'required',
+            'estado' => 'required',
             'domicilio' => 'required',
             'cantidadCamiones' => 'required|numeric',
+            'tipoCamiones' => 'required',
+            'certificado' => 'required',
+
 
         ]);
 
@@ -54,9 +57,10 @@ class CarriersController extends Controller
         $conductor->apellidoMaterno = $request->apellidoMaterno;
         $conductor->domicilio = $request->domicilio;
         $conductor->correo= $request->correo;
-        $conductor->zona= $request->zona;
+        $conductor->estado= $request->estado;
         $conductor->cantidadCamiones = $request->cantidadCamiones;
-
+        $conductor->tipoCamiones = $request->tipoCamiones;
+        $conductor->certificado = $request->certificado;
         $conductor->save();
 
 

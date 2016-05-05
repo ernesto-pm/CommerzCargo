@@ -17,11 +17,13 @@ class CreateCarriersTable extends Migration
             $table->string('nombre');
             $table->string('correo')->unique();
             $table->string('password',35);
-            $table->string('zona');
+            $table->string('estado');
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno');
             $table->string('domicilio');
             $table->integer('cantidadCamiones');
+            $table->string('tipoCamiones');
+            $table->string('certificado');
             $table->rememberToken();
             $table->timestamps();
         });

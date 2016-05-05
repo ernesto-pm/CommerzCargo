@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <h1>Cotizaciones</h1>
+    <h1>Cotiza</h1>
     <p class="lead"></p>
     <hr>
 
@@ -29,14 +29,20 @@
 
     <div class="form-group">
         {!! Form::label('select', 'Selecciona Zona', ['class' => 'control-label'] )  !!}
-        {!!  Form::select('zona', ['N' => 'Norte', 'S' => 'Sur', 'O' => 'Oriente', 'P' => 'Poniente'],  'S', ['class' => 'form-control' ]) !!}
+        {!! Form::text('estado', null, ['class' => 'form-control']) !!}
 
     </div>
 
+        <div class="form-group">
+            {!! Form::label('select', 'Selecciona Cantidad', ['class' => 'control-label'] )  !!}
+            {!! Form::text('cantidad', null, ['class' => 'form-control']) !!}
+
+        </div>
+
     <!-- Checkbox -->
     <div class="form-group">
-          {!! Form::checkbox('materialPeligroso') !!}
-          {!! Form::label('checkbox', 'Material Peligroso') !!}
+          {!! Form::checkbox('peligroso') !!}
+          {!! Form::label('checkbox', 'Material Peligroso',true) !!}
 
     </div>
 
@@ -56,13 +62,15 @@
 
     <div class="form-group">
         {!! Form::label('select', 'Selecciona Tipo de Bienes', ['class' => 'control-label'] )  !!}
-        {!!  Form::select('tipoGoods', ['C' => 'calzado', 'A' => 'Alcohol', 'S' => 'Accesorios', 'R' => 'Ropa', 'E' => 'Electronicos', 'B' =>'Comidas/bebidas', 'M' => 'Metales', 'F' => 'farmaceutico'],  'S', ['class' => 'form-control' ]) !!}
+        {!!  Form::select('tipoGood', ['C' => 'calzado', 'A' => 'Alcohol', 'S' => 'Accesorios', 'R' => 'Ropa', 'E' => 'Electronicos', 'B' =>'Comidas/bebidas', 'M' => 'Metales', 'F' => 'farmaceutico'],  'S', ['class' => 'form-control' ]) !!}
 
     </div>
 
     <div class="form-group">
         {!! Form::label('select', 'Escribe el peso', ['class' => 'control-label'] )  !!}
         {!! Form::text('peso', null, ['class' => 'form-control']) !!}
+
+
 
     </div>
 
@@ -72,6 +80,8 @@
 
     </div>
 
+
+
     <div class="form-group">
         {!! Form::label('select', 'Escribe el valor monetario de los bienes', ['class' => 'control-label'] )  !!}
         {!! Form::text('valorMonetario', null, ['class' => 'form-control']) !!}
@@ -80,7 +90,7 @@
 
     <div class="form-group">
           {!! Form::checkbox('blindShipment') !!}
-          {!! Form::label('checkbox', 'BlindShipment') !!}
+          {!! Form::label('checkbox', 'BlindShipment',true) !!}
 
     </div>
 
@@ -97,7 +107,45 @@
 
     </div>
 
+        <div class="form-group">
+            {!! Form::label('select', 'Numero de Paquetes', ['class' => 'control-label'] )  !!}
+            {!! Form::text('numPaquetes', null, ['class' => 'form-control']) !!}
 
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('select', 'Dimension Alto', ['class' => 'control-label'] )  !!}
+            {!! Form::text('dimensionAlto', null, ['class' => 'form-control']) !!}
+
+        </div>
+
+
+        <div class="form-group">
+            {!! Form::label('select', 'Dimension Largo', ['class' => 'control-label'] )  !!}
+            {!! Form::text('dimensionLargo', null, ['class' => 'form-control']) !!}
+
+        </div>
+
+
+
+        <div class="form-group">
+            {!! Form::label('select', 'Dimension Ancho', ['class' => 'control-label'] )  !!}
+            {!! Form::text('dimensionAncho', null, ['class' => 'form-control']) !!}
+
+        </div>
+
+
+        <div class="form-group">
+            {!! Form::label('select', 'Fecha Envio', ['class' => 'control-label'] )  !!}
+            {!! Form::text('fechaEnvio', null, ['class' => 'form-control']) !!}
+
+        </div>
+
+        <div class="form-group">
+            {!! Form::label('select', 'Modo Envio', ['class' => 'control-label'] )  !!}
+            {!! Form::text('modoEnvio', null, ['class' => 'form-control']) !!}
+
+        </div>
 
 
 

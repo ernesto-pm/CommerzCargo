@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Application;
 
 class ApplicationsController extends Controller
 {
@@ -15,7 +16,10 @@ class ApplicationsController extends Controller
      */
     public function index()
     {
-        return view('applications.index');
+
+
+        $applications = Application::all();
+        return view('applications.index',['applications' => $applications]);
     }
 
     /**
@@ -37,20 +41,25 @@ class ApplicationsController extends Controller
     public function store(Request $request)
     {
           $this->validate($request, [
-              'cantidad' => 'required|numeric',
+              'cantidad'=> 'required|numeric',
               'modoEnvio' => 'required',
-              'materialPeligroso' => 'required',
+              'peligroso'=> 'required',
               'peso' => 'required|numeric',
               'valorMonetario' => 'required|numeric',
-              'freightClass' => 'required|numeric',
-              'blindShipment' => 'required',
+              'freightClass'=>'required',
+              'blindShipment'=>'required',
               'tipoGood' => 'required',
-              'zona' => 'required',
+              'estado' => 'required',
               'cpOrigen' => 'required|numeric',
               'cpDestino' => 'required|numeric',
               'modoEmpacado' => 'required',
               'tipoLocacionOrigen' => 'required',
               'tipoLocacionDestino' => 'required',
+              'fechaEnvio'=>'required',
+              'dimensionLargo'=>'required|numeric',
+              'dimensionAncho'=>'required|numeric',
+              'dimensionAlto'=>'required|numeric',
+              'numPaquetes'=>'required|numeric',
           ]);
 
 
@@ -58,19 +67,24 @@ class ApplicationsController extends Controller
           $cotizacion->cantidad = $request->cantidad;
           $cotizacion->modoEnvio = $request->modoEnvio;
           $cotizacion->modoEmpacado= $request->modoEmpacado;
-          $cotizacion->materialPeligroso = $request->materialPeligroso;
+          $cotizacion->peligroso = $request->peligroso;
           $cotizacion->peso = $request->peso;
           $cotizacion->freightClass = $request->freightClass;
           $cotizacion->valorMonetario = $request->valorMonetario;
-          $cotizacion->zona = $request->zona;
+          $cotizacion->estado = $request->estado;
           $cotizacion->tipoGood = $request->tipoGood;
           $cotizacion->cpOrigen = $request->cpOrigen;
           $cotizacion->cpDestino = $request->cpDestino;
           $cotizacion->blindShipment = $request->blindShipment;
+          $cotizacion->fechaEnvio= $request->fechaEnvio;
+          $cotizacion->dimensionLargo = $request->dimensionLargo;
+          $cotizacion->dimensionAncho = $request->dimensionAncho;
+          $cotizacion->dimensionAlto = $request->dimensionAlto;
+          $cotizacion->numPaquetes = $request->numPaquetes;
           $cotizacion->save();
 
 
-          return redirect()->route('pages.home');
+          return redirect()->route('clients.create');
     }
 
     /**

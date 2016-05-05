@@ -28,7 +28,12 @@ class CreateApplicationsTable extends Migration
             $table->integer('freightClass');
             $table->string('tipoLocacionOrigen');
             $table->string('tipoLocacionDestino');
-            $table->string('zona');
+            $table->string('estado');
+            $table->integer('numPaquetes');
+            $table->integer('dimensionLargo');
+            $table->integer('dimensionAncho');
+            $table->integer('dimensionAlto');
+            $table->dateTime('fechaEnvio');
             $table->timestamps();
         });
     }

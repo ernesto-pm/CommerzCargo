@@ -3,7 +3,7 @@
 @section('content')
 
     <h1>Regístrate</h1>
-    <p class="lead">Add to your task list below.</p>
+    <p class="lead"></p>
     <hr>
 
     @if($errors->any())
