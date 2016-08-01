@@ -60,7 +60,6 @@ class ClientsController extends Controller
         $this->validate($request, [
             'nombre' => 'required',
             'password' => 'required',
-            'rfc' => 'required|numeric',
             'correo' => 'unique:clients|required|email',
             'apellidoPaterno' => 'required',
             'apellidoMaterno' => 'required',
@@ -71,7 +70,6 @@ class ClientsController extends Controller
         $cliente = new Client();
         $cliente->nombre = $request->nombre;
         $cliente->password = bcrypt($request->password);
-        $cliente->rfc = $request->rfc;
         $cliente->apellidoPaterno = $request->apellidoPaterno;
         $cliente->apellidoMaterno = $request->apellidoMaterno;
         $cliente->domicilio = $request->domicilio;

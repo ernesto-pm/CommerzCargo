@@ -47,10 +47,6 @@
                                     </div>
 
                                     <div class="form-group">
-                                        {!! Form::text('rfc', null, ['class' => 'form-control input-sm', 'placeholder' => 'RFC']) !!}
-                                    </div>
-
-                                    <div class="form-group">
                                         {!! Form::text('password', null, ['class' => 'form-control input-sm', 'placeholder' => 'password']) !!}
                                     </div>
 

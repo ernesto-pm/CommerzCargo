@@ -16,7 +16,7 @@ class CreateCarriersTable extends Migration
             $table->increments('id');
             $table->string('nombre');
             $table->string('correo')->unique();
-            $table->string('password',35);
+            $table->string('password');
             $table->string('estado');
             $table->string('apellidoPaterno');
             $table->string('apellidoMaterno');

@@ -19,7 +19,7 @@
     <link rel="stylesheet" href="css/animate.min.css" type="text/css">
 
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ URL::asset('login/creative.css') }}"" type="text/css">
+    <link rel="stylesheet" href="{{ URL::asset('login/creative.css') }}" type="text/css">
 
     <style>
         .btn-primary{

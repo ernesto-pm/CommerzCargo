@@ -42,25 +42,18 @@ class CarriersController extends Controller
             'apellidoMaterno' => 'required',
             'apellidoPaterno' => 'required',
             'correo' => 'required',
-            'estado' => 'required',
             'domicilio' => 'required',
             'cantidadCamiones' => 'required|numeric',
-            'tipoCamiones' => 'required',
-            'certificado' => 'required',
-
-
         ]);
 
         $conductor = new Carrier();
         $conductor->nombre = $request->nombre;
+        $conductor->password = bcrypt($request->password);
         $conductor->apellidoPaterno = $request->apellidoPaterno;
         $conductor->apellidoMaterno = $request->apellidoMaterno;
         $conductor->domicilio = $request->domicilio;
         $conductor->correo= $request->correo;
-        $conductor->estado= $request->estado;
         $conductor->cantidadCamiones = $request->cantidadCamiones;
-        $conductor->tipoCamiones = $request->tipoCamiones;
-        $conductor->certificado = $request->certificado;
         $conductor->save();
 
 

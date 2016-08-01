@@ -20,13 +20,18 @@
                                     </div>
                                 @endif
                                     {!! Form::open([
-                                         'route' => 'carriers.store'
+                                         'route' => 'clients.store'
                                       ]) !!}
 
                                     <div class="form-group">
                                         {!! Form::text('nombre', null, ['class' => 'form-control input-sm','placeholder' => 'Nombre']) !!}
                                     </div>
 
+                                    <div class="col-xs-6 col-sm-6 col-md-6">
+                                        <div class="form-group">
+                                            {!! Form::text('telefono', null, ['class' => 'form-control input-sm', 'placeholder' => 'Teléfono']) !!}
+                                        </div>
+                                    </div>
 
                                     <div class="form-group">
                                         {!! Form::text('password', null, ['class' => 'form-control input-sm','placeholder' => 'Password']) !!}

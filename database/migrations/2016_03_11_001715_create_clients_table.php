@@ -16,14 +16,19 @@ class CreateClientsTable extends Migration
           $table->increments('id');
           $table->string('nombre');
           $table->string('password',100);
-          $table->string('rfc');
           $table->string('apellidoPaterno');
           $table->string('apellidoMaterno');
           $table->string('domicilio');
           $table->string('correo')->unique();
           $table->integer('telefono');
+
+          $table->integer('cantidadCamiones')->nullable();
+          $table->string('zona')->nullable();
+
           $table->rememberToken();
           $table->timestamps();
+
+          //TODO agregar tabla de roles y roles D:
       });
     }
 

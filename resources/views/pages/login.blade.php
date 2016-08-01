@@ -32,6 +32,9 @@
                                     <button class="btn botonLanding" type="submit">Iniciar sesion</button>
                                     <input type="hidden" name="_token" value="{{Session::token()}}">
                                 </form>
+                                <br>
+
+                                No tienes una cuenta? Registrate <a href="/clients/create"> Aquí</a>
                             </div>
                         </div>
                     </div>

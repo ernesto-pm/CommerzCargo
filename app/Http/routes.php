@@ -30,7 +30,6 @@ Route::group(['middleware' => ['web']], function () {
     ]);
 
 
-
     Route::resource('applications','ApplicationsController');
     
     Route::resource('clients','ClientsController');
