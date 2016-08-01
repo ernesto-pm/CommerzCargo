@@ -9,7 +9,7 @@
                     <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                         <div class="panel panel-default panelCommerz">
                             <div class="panel-heading">
-                                <h3 class="panel-title"><img style="width:50%;margin: 0 auto;" class="img-responsive" src="{{ URL::asset('login/logo.png') }}"><br>Registrate <small>Llena los campos a continuacion</small></h3>
+                                <h3 class="panel-title"><img style="width:50%;margin: 0 auto;" class="img-responsive" src="{{ URL::asset('login/logo.png') }}"><br>Registrate Conductor<small>Llena los campos a continuacion</small></h3>
                             </div>
                             <div class="panel-body">
                                 @if($errors->any())
@@ -27,11 +27,11 @@
                                         {!! Form::text('nombre', null, ['class' => 'form-control input-sm','placeholder' => 'Nombre']) !!}
                                     </div>
 
-                                    <div class="col-xs-6 col-sm-6 col-md-6">
+
                                         <div class="form-group">
                                             {!! Form::text('telefono', null, ['class' => 'form-control input-sm', 'placeholder' => 'Teléfono']) !!}
                                         </div>
-                                    </div>
+
 
                                     <div class="form-group">
                                         {!! Form::text('password', null, ['class' => 'form-control input-sm','placeholder' => 'Password']) !!}

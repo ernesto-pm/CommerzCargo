@@ -48,8 +48,6 @@ Route::group(['middleware' => ['web']], function () {
 
     Route::get('pages/login','PagesController@login') -> name('login');
 
-    Route::get('/carriers/loginCarriers','CarriersController@loginCarriers');
-
     Route::get('clients/successful','ClientsController@successful') -> name('successful');
 
     Route::get('/dashboard',[
