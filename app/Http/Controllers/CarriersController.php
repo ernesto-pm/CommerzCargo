@@ -18,6 +18,10 @@ class CarriersController extends Controller
         return view('carriers.index');
     }
 
+    public function loginCarriers(){
+        return view('carriers.login');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

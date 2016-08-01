@@ -8,7 +8,7 @@
                         <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
                             <div class="panel panel-default panelCommerz">
                                 <div class="panel-heading">
-                                    <h3 class="panel-title"><img style="width:50%;margin: 0 auto;" class="img-responsive" src="{{ URL::asset('login/logo.png') }}"><br>Registrate <small>Llena los campos a continuacion</small></h3>
+                                    <h3 class="panel-title"><img style="width:50%;margin: 0 auto;" class="img-responsive" src="{{ URL::asset('login/logo.png') }}"><br>Nuevo cliente <small>Llena los campos a continuacion</small></h3>
                                 </div>
                                 <div class="panel-body">
                                     @if($errors->any())
