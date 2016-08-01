@@ -80,7 +80,7 @@ class ClientsController extends Controller
         //return redirect()->back();
         //return redirect()->route('clients.succesful');
         //return redirect()->route('clients.index');
-        return view('pages.home');
+        return redirect()->back()->withErrors(["Registro exitoso, por favor inicia sesion"]);
 
     }
 

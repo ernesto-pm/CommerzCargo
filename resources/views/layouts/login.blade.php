@@ -86,10 +86,10 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a class="page-scroll" href="#">Clientes</a>
+                    <a class="page-scroll" href="http://commerzcargo.com/dashboard/pages/login">Clientes</a>
                 </li>
                 <li>
-                    <a class="page-scroll" href="#">Transportistas</a>
+                    <a class="page-scroll" href="http://commerzcargo.com/dashboard/carriers">Transportistas</a>
                 </li>
                 <li>
                     <a class="page-scroll" href="#about">Sobre nosotros</a>
