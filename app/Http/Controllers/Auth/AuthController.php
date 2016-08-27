@@ -28,7 +28,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -52,6 +52,10 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
+            'city' => 'required',
+            'state' => 'required',
+            'lastName' => 'required',
+            'phoneNumber' => 'required'
         ]);
     }
 
@@ -63,10 +67,32 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+
+        $tipoDeUsuario = $data['tipoDeUsuario'];
+
+        $usuario = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'lastname' => $data['lastName'],
+            'companyname' => $data['companyName'],
+            'phonenumber' => $data['phoneNumber'],
+            'city' => $data['city'],
+            'state' => $data['state'],
         ]);
+
+
+        // Assign role of the user
+        if($tipoDeUsuario == "carrier"){
+            $usuario->roles()->attach(3);
+        }else if($tipoDeUsuario == "shipper"){
+            $usuario->roles()->attach(2);
+        }else{
+            echo "Cheatin' hu? ";
+            die();
+        }
+
+        // Return a user so the login function works
+        return $usuario;
     }
 }
