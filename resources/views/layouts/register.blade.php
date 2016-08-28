@@ -59,4 +59,7 @@
 <script src="{!! URL::asset('theme/assets/pages/scripts/login-4.js')!!}"></script>
 
 </body>
+
+
+
 </html>

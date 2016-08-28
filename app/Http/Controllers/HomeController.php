@@ -71,7 +71,7 @@ class HomeController extends Controller
     public function postCreateOrder(Request $data){
         //dd($data->all());
 
-        $time = strtotime($data['dueDate']);
+        $time = date( 'Y-m-d H:i:s', strtotime($data['dueDate']));
 
         $order = Order::create([
             'originState' => $data['originState'],
@@ -88,7 +88,7 @@ class HomeController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        return $order;
+        return redirect('/home');
     }
 
 

@@ -37,8 +37,8 @@
 
         <!-- BEGIN LOGO -->
         <div class="page-logo">
-            <a href="index.html">
-                <img src="{!! URL::asset('theme/assets/layouts/layout/img/logo.png')!!}" alt="logo" class="logo-default"> </a>
+            <a href="/">
+                <img src="{!! URL::asset('landing/img/logo.png')!!}" alt="logo" class="logo-default" style="width: 100px"> </a>
             <div class="menu-toggler sidebar-toggler"> </div>
         </div>
         <!-- END LOGO -->
@@ -155,33 +155,29 @@
                         </a>
                         <ul class="dropdown-menu dropdown-menu-default">
                             <li>
-                                <a href="page_user_profile_1.html">
-                                    <i class="icon-user"></i> My Profile </a>
+                                <a href="/home">
+                                    <i class="icon-user"></i> Dashboard </a>
                             </li>
                             <li>
                                 <a href="app_calendar.html">
-                                    <i class="icon-calendar"></i> My Calendar </a>
+                                    <i class="icon-calendar"></i> Mi calendario (TODO) </a>
                             </li>
                             <li>
                                 <a href="app_inbox.html">
-                                    <i class="icon-envelope-open"></i> My Inbox
+                                    <i class="icon-envelope-open"></i> Mis mensajes (TODO)
                                     <span class="badge badge-danger"> 3 </span>
                                 </a>
                             </li>
                             <li>
                                 <a href="app_todo.html">
-                                    <i class="icon-rocket"></i> My Tasks
+                                    <i class="icon-rocket"></i> Mis tareas (TODO)
                                     <span class="badge badge-success"> 7 </span>
                                 </a>
                             </li>
                             <li class="divider"> </li>
                             <li>
-                                <a href="page_user_lock_1.html">
-                                    <i class="icon-lock"></i> Lock Screen </a>
-                            </li>
-                            <li>
-                                <a href="page_user_login_1.html">
-                                    <i class="icon-key"></i> Log Out </a>
+                                <a href="/logout">
+                                    <i class="icon-key"></i> Salir </a>
                             </li>
                         </ul>
                     </li>
@@ -239,7 +235,7 @@
                     <!-- END SIDEBAR TOGGLER BUTTON -->
                 </li>
                 <li class="nav-item">
-                    <a href="javascript:;" class="nav-link nav-toggle">
+                    <a href="/home" class="nav-link nav-toggle">
                         <i class="icon-home"></i>
                         <span class="title">Dashboard</span>
                         <span class="arrow"></span>
