@@ -69,9 +69,9 @@
 @yield('content')
 
 <!-- jQuery -->
-<script src="{!! URL::asset('js/jquery.js')!!}"></script>
-<script src="{!! URL::asset('js/bootstrap.min.js')!!}"></script>
-<script src="{!! URL::asset('js/jquery.easing.min.js')!!}"></script>
-<script src="{!! URL::asset('js/jquery.fittext.js')!!}"></script>
-<script src="{!! URL::asset('js/wow.min.js')!!}"></script>
-<script src="{!! URL::asset('js/creative.js')!!}"></script>
+<script src="{!! URL::asset('landing/js/jquery.js')!!}"></script>
+<script src="{!! URL::asset('landing/js/bootstrap.min.js')!!}"></script>
+<script src="{!! URL::asset('landing/js/jquery.easing.min.js')!!}"></script>
+<script src="{!! URL::asset('landing/js/jquery.fittext.js')!!}"></script>
+<script src="{!! URL::asset('landing/js/wow.min.js')!!}"></script>
+<script src="{!! URL::asset('landing/js/creative.js')!!}"></script>
