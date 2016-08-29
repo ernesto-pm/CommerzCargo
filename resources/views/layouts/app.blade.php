@@ -26,6 +26,14 @@
     <link rel="stylesheet" href="{!! URL::asset('theme/assets/layouts/layout/css/themes/darkblue.min.css')!!}">
     <link rel="stylesheet" href="{!! URL::asset('theme/assets/layouts/layout/css/custom.min.css')!!}">
 
+    <link href="{!! URL::asset('theme/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') !!}" rel="stylesheet" type="text/css">
+
+
+
+
+
+
+
     <link rel="shortcut icon" href="{!! URL::asset('favicon.ico') !!}">
 
 
@@ -98,7 +106,8 @@
                                     <li>
                                         <a href="#">
                                                 <span class="photo">
-                                                    <img src="../assets/layouts/layout3/img/avatar2.jpg" class="img-circle" alt=""> </span>
+
+                                                    <img src="theme/assets/layouts/layout/img/avatar.png" class="img-circle" alt=""> </span>
                                                 <span class="subject">
                                                     <span class="from"> Lisa Wong </span>
                                                     <span class="time">Just Now </span>
@@ -149,7 +158,7 @@
 
                     <li class="dropdown dropdown-user">
                         <a href="javascript:;" class="dropdown-toggle" data-toggle="dropdown" data-hover="dropdown" data-close-others="true">
-                            <img alt="" class="img-circle" src="../assets/layouts/layout/img/avatar3_small.jpg">
+                            <img alt="" class="img-circle" src="theme/assets/layouts/layout/img/avatar.png">
                             <span class="username username-hide-on-mobile">  {{Auth()->user()->name}}  </span>
                             <i class="fa fa-angle-down"></i>
                         </a>
@@ -259,14 +268,26 @@
 
 
     <!-- JavaScripts -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.3/jquery.min.js" integrity="sha384-I6F5OKECLVtK/BL+8iSLDEHowSAfUo76ZL9+kGAgTRdiByINKJaqTPH/QVNS1VDb" crossorigin="anonymous"></script>
-    <script src="{!! URL::asset('jquery-ui.js')!!}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script>
-        $( function() {
-            $( "#datepicker" ).datepicker();
-        } );
-    </script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/jquery.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap/js/bootstrap.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/js.cookie.min.js')!!}"type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/jquery-slimscroll/jquery.slimscroll.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/jquery.blockui.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/uniform/jquery.uniform.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-switch/js/bootstrap-switch.min.js')!!}" type="text/javascript"></script>
+
+    <script src="{!! URL::asset('theme/assets/global/plugins/moment.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-datepicker/js/bootstrap-datepicker.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-timepicker/js/bootstrap-timepicker.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-datetimepicker/js/bootstrap-datetimepicker.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/global/plugins/clockface/js/clockface.js')!!}" type="text/javascript"></script>
+
+    <script src="{!! URL::asset('theme/assets/global/scripts/app.min.js')!!}" type="text/javascript"></script>
+    <script src="{!! URL::asset('theme/assets/pages/scripts/components-date-time-pickers.min.js')!!}" type="text/javascript"></script>
+
+
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 </body>
 </html>

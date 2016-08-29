@@ -13,12 +13,14 @@
     </head>
 
     <div class="logo">
-
+        <a href="/">
+            <img src="{!! URL::asset('landing/img/logo.png')!!}"  alt="" style="width: 300px" >
+        </a>
     </div>
 
     <div class="content">
         <form class="login-form" role="form" method="POST" action="{{url('/login')}}" id="register" novalidate="novalidate">
-            <h3 class="form-title">Login</h3>
+            <h3 class="form-title">Inicia Sesión</h3>
             {{ csrf_field() }}
 
             <!-- Nombre -->
@@ -53,6 +55,12 @@
                         <span class="box"></span> Recordarme </label>
                 </div>
                 <button type="submit" class="btn green pull-right"> Login </button>
+            </div>
+            <br>
+            <div class="create-account">
+                <p> ¿No tienes una cuenta aún?&nbsp;
+                    <a href="/register" id="register-btn"> Registrate </a>
+                </p>
             </div>
 
         </form>

@@ -12,7 +12,9 @@
         </style>
     </head>
     <div class="logo">
-
+        <a href="/">
+            <img src="{!! URL::asset('landing/img/logo.png')!!}"p alt="" style="width: 300px;">
+        </a>
     </div>
 
     <div class="content">
@@ -123,7 +125,7 @@
             </div>
 
             <select class="form-control edited" id="form_control_1" name="tipoDeUsuario">
-                <option value="carrier">Camionero</option>
+                <option value="carrier">Transportista</option>
                 <option value="shipper">Cliente</option>
             </select>
 

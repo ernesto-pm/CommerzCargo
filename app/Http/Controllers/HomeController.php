@@ -71,6 +71,7 @@ class HomeController extends Controller
     public function postCreateOrder(Request $data){
         //dd($data->all());
 
+
         $time = date( 'Y-m-d H:i:s', strtotime($data['dueDate']));
 
         $order = Order::create([
@@ -89,6 +90,7 @@ class HomeController extends Controller
         ]);
 
         return redirect('/home');
+
     }
 
 

@@ -6,7 +6,7 @@
         <div class="page-toolbar">
             <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
                 <i class="icon-calendar"></i>&nbsp;
-                <span class="thin uppercase hidden-xs">{{date("L M Y")}}</span>&nbsp;
+                <span class="thin uppercase hidden-xs">{{date('Y-m-d H:i:s')}}</span>&nbsp;
             </div>
         </div>
     </div>

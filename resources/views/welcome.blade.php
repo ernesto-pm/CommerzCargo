@@ -57,8 +57,12 @@
             <div class="header-content-inner">
                 <img style="width:40%;margin: 0 auto;" class="img-responsive" src="{!! URL::asset('landing/img/logo.png')!!}">
                 <p style="color:white;margin-bottom: 30px">Una nueva forma de coordinar tus envíos</p>
-                <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Clientes</a>
-                <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Transportistas</a>
+                @if(Auth::guest())
+                    <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Clientes</a>
+                    <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Transportistas</a>
+                @else
+                    <a href="/home" class="btn btn-primary btn-xl page-scroll botonLanding">Ir a mi dashboard</a>
+                @endif
             </div>
         </div>
     </header>
