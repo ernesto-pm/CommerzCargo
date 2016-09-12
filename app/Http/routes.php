@@ -21,5 +21,14 @@ Route::get('/home', 'HomeController@index');
 
 // New orders routes
 Route::get('/crearOrden', 'HomeController@createOrder');
-Route::get('/postCrearOrden', 'HomeController@postCreateOrder');
+Route::post('/postCrearOrden', 'HomeController@postCreateOrder');
+
+Route::post('/postCrearConfirmacion','HomeController@postCreateConfirmation');
+Route::post('/postConfirmar','HomeController@postConfirm');
+Route::get('/verOrden/{id}','HomeController@viewOrder');
+Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
+
+
+
+
 // End new orders routes

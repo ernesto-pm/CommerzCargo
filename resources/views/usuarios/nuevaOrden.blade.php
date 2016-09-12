@@ -4,8 +4,9 @@
     <div class="row">
         <div class="container">
             <div class="col-md-offset-3 col-md-6">
-                <form action="/postCrearOrden" class="form-horizontal">
+                <form action="/postCrearOrden" class="form-horizontal" method="POST">
                     <!-- TASK HEAD -->
+                    {{ csrf_field() }}
                     <h3 class="text-center">Registrar Nueva Orden de Envío</h3>
                     <hr>
                     <div class="form">

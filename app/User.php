@@ -31,4 +31,15 @@ class User extends Authenticatable
     public function orders(){
         return $this->hasMany('App\Order');
     }
+
+    public function notifications(){
+        return $this->hasMany('App\Notification');
+    }
+
+    public function hasRole($id){
+        return ! $this->roles->filter(function($role) use ($id) {
+            return $role->id == $id;
+        })->isEmpty();
+    }
+
 }

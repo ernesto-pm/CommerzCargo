@@ -40,7 +40,7 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span data-counter="counterup" data-value="12,5">{{count($orders->where('orderStatus','Pendiente'))}}</span></div>
+                        <span data-counter="counterup" data-value="12,5">{{count($orders->where('orderStatus','Por confirmar'))}}</span></div>
                     <div class="desc"> Envíos por confirmar </div>
                 </div>
                 <a class="more" href="javascript:;"> Más información
@@ -56,7 +56,7 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span data-counter="counterup" data-value="1349">{{count($orders->where('orderStatus','Confirmado'))}}</span>
+                        <span data-counter="counterup" data-value="1349">{{count($orders->where('orderStatus','Confirmada'))}}</span>
                     </div>
                     <div class="desc"> Envíos en camino </div>
                 </div>
