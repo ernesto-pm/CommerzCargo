@@ -3,7 +3,6 @@
     Un administrador ha aprobado una solicitud de envío generada por tí.
     <br>
     Por favor entra a la siguiente liga para confirmar tu orden:
-    http://localhost:8000/verConfirmacion/{{$order->id}}
+    http://www.commerzcargo.com/verConfirmacion/{{$order->id}}
 
-    
 </p>
