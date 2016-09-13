@@ -132,10 +132,10 @@
                             <input name="destinationCity" type="text" class="form-control todo-taskbody-tasktitle" placeholder="Ciudad...">
                             <br>
                             <br>
-                            <label for="destinationCargoService">Servicio de carga</label>
+                            <label for="destinationCargoService">Servicio de descarga</label>
                             <select name="destinationCargoService" id="destinationCargoService" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                <option value="conServicioCarga">Sin maniobra de carga</option>
-                                <option value="sinServicioCarga">Con maniobra de carga</option>
+                                <option value="conServicioCarga">Sin maniobra de descarga</option>
+                                <option value="sinServicioCarga">Con maniobra de descarga</option>
                             </select>
                         </div>
                     </div>

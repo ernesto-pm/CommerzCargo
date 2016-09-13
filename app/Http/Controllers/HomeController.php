@@ -158,6 +158,9 @@ class HomeController extends Controller
 
     }
 
+    function registerCarrier(){
+        return view('auth.registerCarrier');
+    }
 
 
 

@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{!! URL::asset('theme/assets/layouts/layout/css/themes/darkblue.min.css')!!}">
     <link rel="stylesheet" href="{!! URL::asset('theme/assets/layouts/layout/css/custom.min.css')!!}">
     <link rel="stylesheet" href="{!! URL::asset('theme/assets/pages/css/login-4.min.css')!!}">
+    <link rel="stylesheet" href="{!! URL::asset('custom.css') !!}">
 
     <link rel="shortcut icon" href="favicon.ico">
 

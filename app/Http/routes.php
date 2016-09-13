@@ -27,6 +27,7 @@ Route::post('/postCrearConfirmacion','HomeController@postCreateConfirmation');
 Route::post('/postConfirmar','HomeController@postConfirm');
 Route::get('/verOrden/{id}','HomeController@viewOrder');
 Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
+Route::get('/registerCarrier','FrontendController@registerCarrier');
 
 
 

@@ -23,7 +23,7 @@
 
                     @if(Auth::guest())
                         <li>
-                            <a class="page-scroll" href="/register">Registro Transportista</a>
+                            <a class="page-scroll" href="/registerCarrier">Registro Transportista</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="/register">Registro Cliente</a>

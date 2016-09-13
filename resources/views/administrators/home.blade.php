@@ -43,7 +43,7 @@
                         <span data-counter="counterup" data-value="12,5">{{count($orders->where('orderStatus','Pendiente'))}}</span></div>
                     <div class="desc"> Envíos por confirmar </div>
                 </div>
-                <a class="more" href="javascript:;"> Más información
+                    <a class="more" href="##overview"> Más información
                     <i class="m-icon-swapright m-icon-white"></i>
                 </a>
             </div>
@@ -84,6 +84,9 @@
                         <ul class="nav nav-tabs">
                             <li class="active">
                                 <a href="#overview_1" data-toggle="tab"> Por confirmar </a>
+                            </li>
+                            <li>
+                                <a href="#overview_3" data-toggle="tab">Envíos en camino</a>
                             </li>
                             <li>
                                 <a href="#overview_2" data-toggle="tab"> Todas </a>
@@ -148,6 +151,49 @@
 
 
                                         @foreach($orders as $order)
+                                            <tr>
+                                                <td>
+                                                    {{$order->originState}}
+                                                </td>
+                                                <td>
+                                                    {{$order->destinationState}}
+                                                </td>
+                                                <td>
+                                                    {{$order->sendType}}
+                                                </td>
+                                                <td>
+                                                    @if($order->orderStatus == "Pendiente")
+                                                        <span style="color:red">{{$order->orderStatus}}</span>
+                                                    @elseif($order->orderStatus == "Por confirmar")
+                                                        <span style="color: #d4ad38">{{$order->orderStatus}}</span>
+                                                    @elseif($order->orderStatus == "Confirmada")
+                                                        <span style="color:green">{{$order->orderStatus}}</span>
+                                                    @endif
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <div class="tab-pane" id="overview_3">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th> Origen </th>
+                                            <th> Destino </th>
+                                            <th> Tipo </th>
+                                            <th> Estatus </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+
+
+                                        @foreach($orders->where('orderStatus','Confirmada') as $order)
                                             <tr>
                                                 <td>
                                                     {{$order->originState}}

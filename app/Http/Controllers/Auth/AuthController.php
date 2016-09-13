@@ -95,4 +95,5 @@ class AuthController extends Controller
         // Return a user so the login function works
         return $usuario;
     }
+    
 }

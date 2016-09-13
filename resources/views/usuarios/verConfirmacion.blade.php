@@ -50,7 +50,7 @@
                                 Nombre del Operador: {{$confirmationOrder->operatorName}}
                             </p>
                             <p>
-                                <b>Total del envio: {{$confirmationOrder->grandTotal}}</b>
+                                <b>Total del envio: $ {{$confirmationOrder->grandTotal}}</b>
                             </p>
                         </div>
                     </div>
