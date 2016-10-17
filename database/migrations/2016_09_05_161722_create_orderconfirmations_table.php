@@ -19,9 +19,10 @@ class CreateOrderconfirmationsTable extends Migration
             $table->string('transportCompanyName');
             $table->string('vehicleCode');
             $table->string('vehiclePhotoUrl');
-            $table->string('operatorName');
+            $table->integer('operatorid');
             $table->string('operatorPhotoUrl');
             $table->integer('grandTotal');
+            $table->enum('status',array('Por salir','En camino','Entregado'));
             $table->timestamps();
         });
     }

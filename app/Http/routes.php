@@ -29,7 +29,18 @@ Route::get('/verOrden/{id}','HomeController@viewOrder');
 Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
 Route::get('/registerCarrier','FrontendController@registerCarrier');
 
+Route::post('/postShipment','HomeController@postShipment');
+
+Route::group(['middleware'=>'cors','prefix' => 'api/v1'], function(){
+    Route::resource('authenticate', 'AuthenticateController',['only'=>['index']]);
+    Route::post('authenticate','AuthenticateController@authenticate');
+    Route::get('authenticate/user', 'AuthenticateController@getAuthenticatedUser');
+});
+
+Route::group(['middleware' => 'cors', 'prefix' => 'api/v1'], function(){
+    Route::resource('orderconfirmations', 'OrderconfirmationsController');
+});
 
 
 
-// End new orders routes
+

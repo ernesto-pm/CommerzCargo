@@ -59,8 +59,12 @@
                                 <input name="vehicleCode" class="form-control form-control-inline input-medium" size="10" type="text" value="">
                             </p>
                             <p>
-                                <label for="operatorName">Nombre Operador:</label>
-                                <input name="operatorName" class="form-control form-control-inline input-medium" size="10" type="text" value="">
+                                <label for="operatorName">Operador:</label>
+                                <select name="operatorName">
+                                    @foreach($carriers as $carrier)
+                                        <option value="{{$carrier->id}}">{{$carrier->name}}</option>
+                                    @endforeach
+                                </select>
                             </p>
                             <p>
                                 <label for="grandTotal">Precio total:</label>

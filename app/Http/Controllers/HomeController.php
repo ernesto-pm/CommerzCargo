@@ -38,6 +38,9 @@ class HomeController extends Controller
             $isCarrier = false;
             $isAdmin = false;
 
+            $confirmations = Orderconfirmation::all()->where('operatorid',auth()->user()->id);
+
+
             foreach ($roles as $role) {
                 //echo $role->type;
                 if ($role->type == "shipper") {
@@ -56,7 +59,7 @@ class HomeController extends Controller
             }
 
             if ($isCarrier) {
-                return view('home');
+                return view('home',['orders'=>$confirmations]);
             }
 
             if ($isAdmin) {
@@ -107,13 +110,24 @@ class HomeController extends Controller
 
     public function viewOrder($id){
 
+        $users = User::all();
+        $carriers = array();
+
+        foreach($users as $user){
+            //echo $user->roles()->first()->type;
+            if($user->roles()->first()->type == "carrier"){
+                array_push($carriers, $user);
+            }
+        }
+
+
         $roles=Auth::user()->hasRole(1);
-        //$roles=Auth::user()->roles()->get();
-        echo $roles;
+
+
 
         if($roles == 1){
             $order=Order::find($id);
-            return view('administrators.orderResume',array('order'=>$order));
+            return view('administrators.orderResume',array('order'=>$order,'carriers'=>$carriers));
         }else{
             return redirect()->back()->withErrors('No estas autorizado para ver esa página');
         }
@@ -170,7 +184,7 @@ class HomeController extends Controller
         $orderConfirmation->order_id = $data->orderID;
         $orderConfirmation->transportCompanyName = $data->companyName;
         $orderConfirmation->vehicleCode = $data->vehicleCode;
-        $orderConfirmation->operatorName = $data->operatorName;
+        $orderConfirmation->operatorid = $data->operatorName;
         $orderConfirmation->grandTotal = $data->grandTotal;
         $orderConfirmation->vehiclePhotoUrl = "none";
         $orderConfirmation->operatorPhotoUrl = "none";
@@ -191,6 +205,22 @@ class HomeController extends Controller
         return redirect('/home');
 
         //Mail::send()
+    }
+
+    public function postShipment(Request $data){
+        //dd($data->all());
+        $order = Orderconfirmation::where('id',$data->orderID)->first();
+        //print_r($order);
+
+        if($data->instruction == "comenzar"){
+            $order->status = "En camino";
+        }else if($data->instruction == "finalizar"){
+            $order->status = "Entregado";
+        }
+
+        $order->save();
+        return redirect()->back();
+
     }
 
 
