@@ -22,7 +22,7 @@ class CreateOrderconfirmationsTable extends Migration
             $table->integer('operatorid');
             $table->string('operatorPhotoUrl');
             $table->integer('grandTotal');
-            $table->enum('status',array('Por salir','En camino','Entregado'));
+            $table->enum('status',array('Por pagar','Por salir','En camino','Entregado'));
             $table->timestamps();
         });
     }

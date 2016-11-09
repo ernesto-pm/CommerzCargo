@@ -20,7 +20,6 @@ class DatabaseSeeder extends Seeder
         $admin = User::create(array(
            'name'=>'Jose Carlos',
             'lastname'=>'Castro',
-            'companyName'=>'CommerzGroup',
             'phonenumber' => '5512121212',
             'city' => 'Mexico',
             'state' => 'Mexico',

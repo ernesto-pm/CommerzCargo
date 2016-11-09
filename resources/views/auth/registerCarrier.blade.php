@@ -53,6 +53,7 @@
             </div>
 
             <!-- Compania -->
+            <!--
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="companyName" name="companyName" value="{{ old('companyName') }}" style="background: none">
                 <label for="companyName" style="color:white;">Compañia</label>
@@ -63,6 +64,7 @@
                     </span>
                 @endif
             </div>
+            -->
 
             <!-- Telefono -->
             <div class="form-group form-md-line-input form-md-floating-label">

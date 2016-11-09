@@ -23,13 +23,24 @@ Route::get('/home', 'HomeController@index');
 Route::get('/crearOrden', 'HomeController@createOrder');
 Route::post('/postCrearOrden', 'HomeController@postCreateOrder');
 
+
+Route::get('/crearCompania', 'CorporationController@createCorporation');
+Route::post('/postCrearCompania','CorporationController@postCreateCorporation');
+
 Route::post('/postCrearConfirmacion','HomeController@postCreateConfirmation');
 Route::post('/postConfirmar','HomeController@postConfirm');
 Route::get('/verOrden/{id}','HomeController@viewOrder');
 Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
 Route::get('/registerCarrier','FrontendController@registerCarrier');
 
+Route::get('/asociarTransportista/{id}','HomeController@asociarTransportista');
+Route::post('/postAsociarTransportista','HomeController@postAsociarTransportista');
+
 Route::post('/postShipment','HomeController@postShipment');
+
+Route::get('/datosPago','HomeController@mostrarDatosPago');
+
+Route::post('/autorizarEnvio/{id}','HomeController@autorizarEnvio');
 
 Route::group(['middleware'=>'cors','prefix' => 'api/v1'], function(){
     Route::resource('authenticate', 'AuthenticateController',['only'=>['index']]);
@@ -40,7 +51,4 @@ Route::group(['middleware'=>'cors','prefix' => 'api/v1'], function(){
 Route::group(['middleware' => 'cors', 'prefix' => 'api/v1'], function(){
     Route::resource('orderconfirmations', 'OrderconfirmationsController');
 });
-
-
-
 

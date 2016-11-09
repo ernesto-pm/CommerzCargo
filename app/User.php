@@ -42,4 +42,12 @@ class User extends Authenticatable
         })->isEmpty();
     }
 
+    public function company(){
+        return $this->belongsTo('App\Corporation');
+    }
+
+    public function getCarriers(){
+        return $this->belongsToMany('App\Role')->where('type','carrier');
+    }
+
 }

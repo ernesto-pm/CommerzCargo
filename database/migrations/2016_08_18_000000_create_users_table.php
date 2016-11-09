@@ -16,7 +16,8 @@ class CreateUsersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('lastname');
-            $table->string('companyname');
+            $table->integer('corporation_id')->unsigned()->nullable();
+            $table->foreign('corporation_id')->references('id')->on('corporations');
             $table->integer('phonenumber');
             $table->string('city');
             $table->string('state');

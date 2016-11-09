@@ -2,15 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use App\Corporation;
 use App\Http\Requests;
+use Faker\Provider\fr_FR\Company;
 use Illuminate\Http\Request;
 use App\Order;
 use App\User;
+use App\Role;
 use App\Orderconfirmation;
 use Auth;
 use Mail;
 use Config;
 use DB;
+
+use Conekta;
 
 class HomeController extends Controller
 {
@@ -64,7 +69,10 @@ class HomeController extends Controller
 
             if ($isAdmin) {
                 $orders = collect(DB::table('orders')->get());
-                return view('administrators.home', ['orders' => $orders]);
+                $corporations = collect(DB::table('corporations')->get());
+                $carriers = Role::where('type','carrier')->first()->users()->get();
+                $orderConfirmations = Orderconfirmation::all();
+                return view('administrators.home', ['orders' => $orders,'corporations' => $corporations,'carriers'=> $carriers,'confirmations' => $orderConfirmations]);
             }
         }else {
             return view('home');
@@ -109,7 +117,6 @@ class HomeController extends Controller
     }
 
     public function viewOrder($id){
-
         $users = User::all();
         $carriers = array();
 
@@ -119,12 +126,7 @@ class HomeController extends Controller
                 array_push($carriers, $user);
             }
         }
-
-
         $roles=Auth::user()->hasRole(1);
-
-
-
         if($roles == 1){
             $order=Order::find($id);
             return view('administrators.orderResume',array('order'=>$order,'carriers'=>$carriers));
@@ -154,29 +156,69 @@ class HomeController extends Controller
     }
 
     public function postConfirm(Request $data){
+        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+
         $usuario = User::find($data->idUsuario);
         $orden = Order::find($data->idOrden);
         $ordenesUsuario = $usuario->orders;
 
+        $confirmationOrder = Orderconfirmation::find($orden->id);
+
         if($ordenesUsuario.contains($orden)){
             if($orden->orderStatus != 'Confirmada'){
-                $orden->orderStatus = "Confirmada";
+                $orden->orderStatus = "Pago Pendiente";
                 $orden->save();
-                return redirect('/home');
+                $cargo = \Conekta_Charge::create(array(
+                    'description'=> 'Pago Pendiente en CommerzCargo',
+                    'reference_id'=> 'CommerzCargo-'.$confirmationOrder->id,
+                    'amount'=> ($confirmationOrder->grandTotal*100),
+                    'currency'=>'MXN',
+                    'cash'=> array(
+                        'type'=> 'oxxo',
+                        'expires_at'=> 1479443818
+                    ),
+                    'details'=> array(
+                        'name'=> $usuario->name,
+                        'phone'=> $usuario->phonenumber,
+                        'email'=> $usuario->email,
+                        'customer'=> array(
+                            'corporation_name'=> $usuario->corporation_id.' ',
+                            'logged_in'=> true,
+                            'successful_purchases'=> 0,
+                            'created_at'=> 1379784950,
+                            'updated_at'=> 1379784950,
+                            'offline_payments'=> 0,
+                            'score'=> 0
+                        ),
+                        'line_items'=> array(
+                            array(
+                                'name'=> 'Envío commerzcargo',
+                                'description'=> "Envio de: ".$orden->originState."-".$orden->originCity." a ".$orden->destinationState."-".$orden->destinationState,
+                                'unit_price'=> ($confirmationOrder->grandTotal*100),
+                                'quantity'=> 1,
+                                'sku'=> ($orden->id),
+                                'type'=> 'cargo'
+                            )
+                        )
+                    )
+                ));
+                //echo $cargo;
+                return view('usuarios.datosPago',array('pago'=>$cargo));
             }else{
                 return redirect('/home');
             }
         }else{
             return redirect('/home');
         }
-
     }
 
     function registerCarrier(){
         return view('auth.registerCarrier');
     }
 
-
+    function mostrarDatosPago(){
+        return view('usuarios.datosPago');
+    }
 
     public function postCreateConfirmation(Request $data){
         //dd($data->all());
@@ -188,6 +230,7 @@ class HomeController extends Controller
         $orderConfirmation->grandTotal = $data->grandTotal;
         $orderConfirmation->vehiclePhotoUrl = "none";
         $orderConfirmation->operatorPhotoUrl = "none";
+        $orderConfirmation->status = "Por pagar";
         $orderConfirmation->save();
 
         $order = Order::find($data->orderID);
@@ -207,6 +250,13 @@ class HomeController extends Controller
         //Mail::send()
     }
 
+    public function autorizarEnvio($id){
+        $order = Orderconfirmation::find($id);
+        $order->status = "Por salir";
+        $order->save();
+        return redirect()->back();
+    }
+
     public function postShipment(Request $data){
         //dd($data->all());
         $order = Orderconfirmation::where('id',$data->orderID)->first();
@@ -223,5 +273,26 @@ class HomeController extends Controller
 
     }
 
+    public function asociarTransportista($id){
 
+        if(Auth::user()->hasRole(1)){
+            $carrier = User::find($id);
+            $companias = Corporation::all();
+            return view('administrators.asociarTransportista',array('carrier' => $carrier,'corporations' => $companias));
+        }else{
+            return redirect('/home')->withErrors("No estas autorizado para realizar esa accion");
+        }
+    }
+
+    public function postAsociarTransportista(Request $request){
+        if(Auth::user()->hasRole(1)) {
+            $corporation = Corporation::find($request->companyID);
+            $carrier = User::find($request->carrierID);
+            $corporation->employees()->save($carrier);
+            //echo $corporation->employees()->get();
+            return redirect('/home');
+        }else{
+            return redirect('/home')->withErrors("No estas autorizado para realizar esa accion");
+        }
+    }
 }

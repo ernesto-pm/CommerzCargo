@@ -69,7 +69,7 @@
 
 
     <div class="row">
-        <div class="col-md-offset-3 col-md-6">
+        <div class="col-md-6">
             <!-- Begin: life time stats -->
             <div class="portlet light bordered">
                 <div class="portlet-title">
@@ -90,6 +90,9 @@
                             </li>
                             <li>
                                 <a href="#overview_2" data-toggle="tab"> Todas </a>
+                            </li>
+                            <li>
+                                <a href="#overview_4" data-toggle="tab"> Por autorizar </a>
                             </li>
                         </ul>
                         <div class="tab-content">
@@ -222,6 +225,39 @@
                                 </div>
                             </div>
 
+                            <div class="tab-pane" id="overview_4">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th> Compañia </th>
+                                            <th> Total </th>
+                                            <th> Autorizar </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($confirmations->where('status','Por pagar') as $order)
+                                            <tr>
+                                                <td>
+                                                    {{$order->transportCompanyName}}
+                                                </td>
+                                                <td>
+                                                    {{$order->grandTotal}}
+                                                </td>
+                                                <td>
+                                                    <form method="post" action="/autorizarEnvio/{{$order->id}}">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input class="btn btn-info" type="submit" value="Autorizar"/>
+                                                    </form>
+                                                </td>
+                                            </tr>
+                                        @endforeach
+
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -229,6 +265,114 @@
             <!-- End: life time stats -->
         </div>
 
+        <div class="col-md-6">
+            <!-- Begin: life time stats -->
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-share font-blue"></i>
+                        <span class="caption-subject font-blue bold uppercase">Compañias</span>
+                        <span class="caption-helper">Resumen de compañias</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a href="#overview_4" data-toggle="tab"> Todas </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="overview_4">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th> Nombre </th>
+                                            <th> Ciudad </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($corporations as $corporation)
+
+                                            <tr>
+                                                <td>
+                                                    {{$corporation->name}}
+                                                </td>
+                                                <td>
+                                                    {{$corporation->city}}
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <a href="/crearCompania" class="btn btn-success"> Registrar nueva compañia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-offset-3 col-md-6">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <i class="icon-share font-blue"></i>
+                        <span class="caption-subject font-blue bold uppercase">Transportistas</span>
+                        <span class="caption-helper">Resumen de Transportistas</span>
+                    </div>
+                </div>
+                <div class="portlet-body">
+                    <div class="tabbable-line">
+                        <ul class="nav nav-tabs">
+                            <li>
+                                <a href="#overview_4" data-toggle="tab"> Todos </a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="overview_4">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th> Nombre </th>
+                                            <th> Apellido </th>
+                                            <th> Estatus compañia </th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        @foreach($carriers as $carrier)
+                                            <tr>
+                                                <td>
+                                                    {{$carrier->name}}
+                                                </td>
+                                                <td>
+                                                    {{$carrier->lastname}}
+                                                </td>
+                                                <td>
+                                                    @if($carrier->corporation_id)
+                                                        Asociado a Compañia: {{$carrier->corporation_id}}
+                                                    @else
+                                                      Aún falta asociarlo <a class="btn btn-success" href="/asociarTransportista/{{$carrier->id}}">Asociar</a>
+                                                    @endif
+
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <a href="/crearCompania" class="btn btn-success"> Registrar nueva compañia</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 @endsection

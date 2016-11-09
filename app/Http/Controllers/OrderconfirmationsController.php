@@ -16,7 +16,8 @@ class OrderconfirmationsController extends Controller
     }
 
     public function index(){
-        $orderConfirmations = Orderconfirmation::all(); //Not a good idea
+        $orderConfirmations = Orderconfirmation::all();
+        //SELECT * FROM ORDERCONFIRMATIONS
         return Response::json([
             'message'=>$orderConfirmations
         ],200);
@@ -24,7 +25,6 @@ class OrderconfirmationsController extends Controller
 
     public function show($id){
         $orderConfirmation = Orderconfirmation::find($id);
-
         if(!$orderConfirmation){
             return Response::json([
                 'error' => [
@@ -32,12 +32,10 @@ class OrderconfirmationsController extends Controller
                 ]
             ], 404);
         }
-
         return Response::json([
             'data' => $orderConfirmation
         ], 200);
     }
-
 
     public function update(Request $request, $id){
         if(! $request->status or ! $request->operatorId){

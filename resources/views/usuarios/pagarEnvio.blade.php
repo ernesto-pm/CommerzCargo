@@ -12,7 +12,7 @@
                         <div class="col-xs-6">
                             <h4>Detalles envío</h4>
                             <input type="hidden" name="idOrden" value="{{$order->id}}">
-                            <input type="hidden" name="idUsuario" value="{{Auth::user()->id}}"
+                            <input type="hidden" name="idUsuario" value="{{Auth::user()->id}}">
                             <p>
                                 Origen: {{$order->originState}} - {{$order->originCity}}
                                 <br>
@@ -55,7 +55,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                        <input type="submit" class="btn btn-success" value="Confirmar Orden y Generar Pago">
+                        <input type="submit" class="btn btn-success" value="Confirmar Orden">
                         <br>
                         <br>
                         <i>Al hacer clic en confirmar aseguro que estoy de acuerdo con los terminos y condiciones.</i>
