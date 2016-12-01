@@ -2,75 +2,87 @@
 
 @section('content')
 
-<form action="/postPagoTC" method="post" id="card-form">
-    <span class="card-errors"></span>
-    {{ csrf_field() }}
-    <div class="form-row">
-        <label>
-            <span>Nombre del tarjetahabiente</span>
-            <input type="text" size="20" data-conekta="card[name]"/>
-        </label>
+    <div class="row">
+        <div class="container">
+            <div class="col-md-offset-3 col-md-6">
+                <h3 class="text-center">Registrar Datos del pago</h3>
+                <hr>
+                <form action="/postPagoTC" method="post" id="card-form">
+                    <span class="card-errors"></span>
+                    {{ csrf_field() }}
+                    <div class="form-group">
+                        <label>
+                            <span>Nombre del tarjetahabiente</span>
+                        </label>
+                        <input type="text" data-conekta="card[name]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>Número de tarjeta de crédito</span>
+                        </label>
+                        <input type="text" size="20" data-conekta="card[number]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>CVC</span>
+                        </label>
+                        <input type="text" size="4" data-conekta="card[cvc]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>Fecha de expiración (MM/AAAA)</span>
+                        </label>
+                        <br>
+                        <input type="text" size="2" data-conekta="card[exp_month]" class=""/>
+                        <span>/</span>
+                        <input type="text" size="4" data-conekta="card[exp_year]" class=""/>
+                    </div>
+                    <!-- Información recomendada para sistema antifraude -->
+                    <div class="form-group">
+                        <label>
+                            <span>Calle</span>
+                        </label>
+                        <input type="text" size="25" data-conekta="card[address][street1]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-grouo">
+                        <label>
+                            <span>Colonia</span>
+                        </label>
+                        <input type="text" size="25" data-conekta="card[address][street2]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>Ciudad</span>
+                        </label>
+                        <input type="text" size="25" data-conekta="card[address][city]" class="form-control todo-taskbody-tasktitle"/
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>Estado</span>
+                        </label>
+                        <input type="text" size="25" data-conekta="card[address][state]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>CP</span>
+                        </label>
+                        <input type="text" size="5" data-conekta="card[address][zip]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <div class="form-group">
+                        <label>
+                            <span>País</span>
+                        </label>
+                        <input type="text" size="25" data-conekta="card[address][country]" class="form-control todo-taskbody-tasktitle"/>
+                    </div>
+                    <input type="hidden" name="pagoID" value="{{$pagoID}}"/>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-info" >¡Pagar ahora!</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="form-row">
-        <label>
-            <span>Número de tarjeta de crédito</span>
-            <input type="text" size="20" data-conekta="card[number]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>CVC</span>
-            <input type="text" size="4" data-conekta="card[cvc]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>Fecha de expiración (MM/AAAA)</span>
-            <input type="text" size="2" data-conekta="card[exp_month]"/>
-        </label>
-        <span>/</span>
-        <input type="text" size="4" data-conekta="card[exp_year]"/>
-    </div>
-    <!-- Información recomendada para sistema antifraude -->
-    <div class="form-row">
-        <label>
-            <span>Calle</span>
-            <input type="text" size="25" data-conekta="card[address][street1]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>Colonia</span>
-            <input type="text" size="25" data-conekta="card[address][street2]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>Ciudad</span>
-            <input type="text" size="25" data-conekta="card[address][city]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>Estado</span>
-            <input type="text" size="25" data-conekta="card[address][state]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>CP</span>
-            <input type="text" size="5" data-conekta="card[address][zip]"/>
-        </label>
-    </div>
-    <div class="form-row">
-        <label>
-            <span>País</span>
-            <input type="text" size="25" data-conekta="card[address][country]"/>
-        </label>
-    </div>
-    <input type="hidden" name="pagoID" value="{{$pagoID}}"/>
-    <button type="submit">¡Pagar ahora!</button>
-</form>
 
 <script>
     $(function () {
