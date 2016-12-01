@@ -7,6 +7,7 @@
                 <h3 class="text-center">Datos para el pago</h3>
                 <div class="row">
                     <div class="col-xs-6 col-xs-offset-3 text-center">
+                        @if($nuevoPago)
                         <p>
                             <b>ID pago:</b> {{$pago->id}}
                             <br>
@@ -23,6 +24,22 @@
                         <div class="text-center">
                             <a type="submit" class="btn btn-success" href="/home">Regresar</a>
                         </div>
+                        @else
+                            <p>
+                                <b>ID pago:</b> {{$pago->id}}
+                                <br>
+                                <b>Descripcion:</b> {{$pago->description}}
+                                <br>
+                                <b>Cantidad de pago:</b> {{($pago->amount)}}
+                            </p>
+                            <p>
+                                <img src="{{$pago->barcodeURL}}" style="margin: 0 auto;">
+                                {{$pago->barcode}}
+                            </p>
+                            <div class="text-center">
+                                <a type="submit" class="btn btn-success" href="/home">Regresar</a>
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>

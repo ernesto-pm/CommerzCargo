@@ -38,6 +38,22 @@
                             <option value="FTL">FTL</option>
                             <option value="Consolidada">Consolidada</option>
                         </select>
+                        <br>
+                        <label for="cargoType">Tipo de mercancia</label>
+                        <select name="cargoType" id="cargoType" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                            <option value="Textiles/Calzado">Textiles/Calzado</option>
+                            <option value="Alimentos y Bebidas">Alimentos y Bebidas</option>
+                            <option value="Electronicos">Electronicos</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                        <br>
+                        <label for="packageType">Tipo de empaque</label>
+                        <select name="packageType" id="packageType" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
+                            <option value="Cajas">Cajas</option>
+                            <option value="Pallets">Pallets</option>
+                            <option value="Bultos">Bultos</option>
+                            <option value="otros">Otros</option>
+                        </select>
                     </div>
 
                     <div class="row">

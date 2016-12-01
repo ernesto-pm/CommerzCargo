@@ -52,6 +52,9 @@
                             <p>
                                 <b>Total del envio: $ {{$confirmationOrder->grandTotal}}</b>
                             </p>
+                            <label class="mt-checkbox">
+                                <input type="checkbox" name="enEfectivo"> Pagar en efectivo
+                            </label>
                         </div>
                     </div>
                     <div class="text-center">

@@ -85,7 +85,7 @@
                                 <a href="#overview_1" data-toggle="tab"> Recientes </a>
                             </li>
                             <li>
-                                <a href="#overview_2" data-toggle="tab"> Mejores envíos </a>
+                                <a href="#overview_2" data-toggle="tab"> Confirmaciones </a>
                             </li>
                             <li>
                                 <a href="#overview_3" data-toggle="tab"> Nuevos envíos </a>
@@ -104,32 +104,61 @@
                                         </tr>
                                         </thead>
                                         <tbody>
-
-
-                                        @foreach($orders as $order)
-                                            <tr>
-                                                <td>
-                                                    {{$order->originState}}
-                                                </td>
-                                                <td>
-                                                    {{$order->destinationState}}
-                                                </td>
-                                                <td>
-                                                    {{$order->sendType}}
-                                                </td>
-                                                <td>
-                                                    {{$order->dueDate}}
-                                                </td>
-                                            </tr>
-                                        @endforeach
-
+                                            @foreach($orders as $order)
+                                                <tr>
+                                                    <td>
+                                                        {{$order->originState}}
+                                                    </td>
+                                                    <td>
+                                                        {{$order->destinationState}}
+                                                    </td>
+                                                    <td>
+                                                        {{$order->sendType}}
+                                                    </td>
+                                                    <td>
+                                                        {{$order->dueDate}}
+                                                    </td>
+                                                </tr>
+                                            @endforeach
                                         </tbody>
                                     </table>
                                 </div>
                             </div>
                             <div class="tab-pane" id="overview_2">
                                 <div class="table-responsive">
-
+                                    <table class="table table-striped table-hover table-bordered">
+                                        <thead>
+                                        <tr>
+                                            <th>Compañia Transportista</th>
+                                            <th>Total</th>
+                                            <th>Status</th>
+                                            <th></th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            @foreach($orders as $order)
+                                                @if($order->orderConfirmation)
+                                                    <tr>
+                                                        <td>{{$order->orderConfirmation->transportCompanyName}}</td>
+                                                        <td>{{$order->orderConfirmation->grandTotal}}</td>
+                                                        <td>{{$order->orderStatus}}</td>
+                                                        <td class="text-center">
+                                                            @if($order->orderStatus == "Pagar al entregar")
+                                                                Orden confirmada
+                                                            @elseif($order->orderStatus == "Pago Pendiente")
+                                                                Orden confirmada - Pago pendiente
+                                                                <br>
+                                                                <a class="btn btn-info" href="/generarPagoOxxo/{{$order->payment->id}}">Pago en Oxxo</a>
+                                                                <a class="btn btn-info" href="/generarPagoTC/{{$order->payment->id}}">Pago con tarjeta de crédito</a>
+                                                            @elseif($order->orderStatus == "Por confirmar")
+                                                                <a class="btn btn-info" href="/verConfirmacion/{{$order->orderConfirmation->id}}">Confirmar</a>
+                                                            @endif
+                                                        </td>
+                                                    </tr>
+                                                @endif
+                                            @endforeach
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
                             <div class="tab-pane" id="overview_3">

@@ -34,6 +34,12 @@
                             <strong>Tipo de transporte: </strong> {{$order->transportationType}}
                         </p>
                         <p>
+                            <strong>Tipo de cargamento: </strong> {{$order->cargoType}}
+                        </p>
+                        <p>
+                            <strong>Tipo de empaque: </strong> {{$order->packageType}}
+                        </p>
+                        <p>
                             <strong>Tipo de vehículo: </strong> {{$order->vehicleType}}
                         </p>
                         <p>

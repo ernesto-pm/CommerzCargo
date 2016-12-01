@@ -27,15 +27,19 @@
     <link rel="stylesheet" href="{!! URL::asset('theme/assets/layouts/layout/css/custom.min.css')!!}">
 
     <link href="{!! URL::asset('theme/assets/global/plugins/bootstrap-daterangepicker/daterangepicker.min.css') !!}" rel="stylesheet" type="text/css">
-
-
-
-
-
-
-
     <link rel="shortcut icon" href="{!! URL::asset('favicon.ico') !!}">
 
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script type="text/javascript" src="https://conektaapi.s3.amazonaws.com/v0.5.0/js/conekta.js"></script>
+
+    <script type="text/javascript">
+
+        // Conekta Public Key
+        //Conekta.setPublishableKey('key_KJysdbf6PotS2ut2'); //v3.2
+        Conekta.setPublicKey('key_DCXoYGs3roRdcSsxyqgbHsA'); //v5+
+
+        // ...
+    </script>
 
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
@@ -268,7 +272,7 @@
 
 
     <!-- JavaScripts -->
-    <script src="{!! URL::asset('theme/assets/global/plugins/jquery.min.js')!!}" type="text/javascript"></script>
+
     <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap/js/bootstrap.min.js')!!}" type="text/javascript"></script>
     <script src="{!! URL::asset('theme/assets/global/plugins/js.cookie.min.js')!!}"type="text/javascript"></script>
     <script src="{!! URL::asset('theme/assets/global/plugins/bootstrap-hover-dropdown/bootstrap-hover-dropdown.min.js')!!}" type="text/javascript"></script>
