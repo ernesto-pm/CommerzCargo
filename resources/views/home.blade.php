@@ -2,6 +2,7 @@
 
 @section('content')
 
+
     <div class="page-bar">
         <div class="page-toolbar">
             <div id="dashboard-report-range" class="pull-right tooltips btn btn-sm" data-container="body" data-placement="bottom" data-original-title="Change dashboard date range">
@@ -10,6 +11,16 @@
             </div>
         </div>
     </div>
+
+    @if (count($errors) > 0)
+        <div class="">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <h3 class="page-title">
         Dashboard <small>Bienvenido a tu panel de comerciante, {{Auth()->user()->name}}</small>

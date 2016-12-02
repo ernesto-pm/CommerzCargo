@@ -27,12 +27,7 @@
                             <strong>Ciudad Destino: </strong> {{$order->destinationCity}}
                         </p>
                         <p>
-                            <strong>Servicio Destino: </strong>
-                            @if($order->destinationCargoService == "sinServicioCarga")
-                                Sin servicio de descarga
-                            @elseif($order->destinationCargoService == "conServicioCarga")
-                                Con servicio de descarga
-                            @endif
+                            <strong>Servicio Destino: </strong> {{$order->destinationCargoService}}
                         </p>
                         <hr>
                         <p>
@@ -53,6 +48,16 @@
                         <hr>
                         <p>
                             <strong>Fecha de envío: </strong> {{$order->dueDate}}
+                        </p>
+                        <hr>
+                        <p>
+                            <strong>Nombre del solicitante:</strong> {{$order->owner->name}}
+                        </p>
+                        <p>
+                            <strong>Email del solicitante:</strong> {{$order->owner->email}}
+                        </p>
+                        <p>
+                            <strong>Teléfono del solicitante:</strong> {{$order->owner->phonenumber}}
                         </p>
                     </div>
                     <div class="col-sm-6">

@@ -13,4 +13,8 @@ class Order extends Model{
     public function payment(){
         return $this->hasOne('App\Payment');
     }
+
+    public function owner(){
+        return $this->belongsTo('App\User','user_id');
+    }
 }

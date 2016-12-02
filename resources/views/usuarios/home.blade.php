@@ -40,7 +40,10 @@
                 </div>
                 <div class="details">
                     <div class="number">
-                        <span data-counter="counterup" data-value="12,5">{{count($orders->where('orderStatus','Por confirmar'))}}</span></div>
+                        <span data-counter="counterup" data-value="12,5">
+                            {{count($orders->where('orderStatus','Por confirmar'))}}
+                        </span>
+                    </div>
                     <div class="desc"> Envíos por confirmar </div>
                 </div>
                 <a class="more" href="javascript:;"> Más información
@@ -78,13 +81,22 @@
                         <span class="caption-helper">Resumen de ordenes...</span>
                     </div>
                 </div>
+
                 <div class="portlet-body">
                     <div class="tabbable-line">
                         <ul class="nav nav-tabs">
-                            <li class="active">
+                            <li class="
+                                    @if (count($errors) <= 0)
+                                        active
+                                    @endif
+                                    ">
                                 <a href="#overview_1" data-toggle="tab"> Recientes </a>
                             </li>
-                            <li>
+                            <li class="
+                                    @if (count($errors) > 0)
+                                        active
+                                    @endif
+                                    ">
                                 <a href="#overview_2" data-toggle="tab"> Confirmaciones </a>
                             </li>
                             <li>

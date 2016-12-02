@@ -58,7 +58,7 @@ class HomeController extends Controller
 
             if ($isShipper) {
                 $orders = auth()->user()->orders()->get();
-                return view('usuarios.home', ['orders' => $orders]);
+                return view('usuarios.home', ['orders' => $orders,'confirmada'=>0]);
             }
 
             if ($isCarrier) {
@@ -278,9 +278,9 @@ class HomeController extends Controller
                 $orden->orderStatus = "Pagada";
                 $orden->save();
 
-                echo "orden pagada y lista para salir";
+                return redirect()->route('home');
             }else{
-                echo "hubo un error al procesar tu pago";
+                return redirect()->back()->withErrors('Hubo un error al procesar tu pago, corrobora la información');
             }
 
         } catch (\Conekta_Error $e) {
@@ -318,7 +318,17 @@ class HomeController extends Controller
                     $pago->cargoConekta = true;
                     $pago->save();
 
-                    return redirect('/home');
+                    Mail::send('emails.confirmacionTC',['order'=>$orden], function($m) use ($usuario){
+                        $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                        $m->to( $usuario->email, $usuario->name)->subject('Confirmacíon de orden de envío');
+                    });
+
+                    Mail::send('emails.confirmacionAdminTC',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
+                        $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                        $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío');
+                    });
+
+                    return redirect()->route('home')->with('confirmada',1);
                     //return view('usuarios.datosPago',array('pago'=>$cargo));
                 }else{
                     $pago = new Payment();
@@ -333,7 +343,18 @@ class HomeController extends Controller
                     $confirmationOrder->status = "Por salir";
                     $orden->save();
                     $confirmationOrder->save();
-                    return redirect('/home');
+
+                    Mail::send('emails.confirmacionEfectivo',['order'=>$orden], function($m) use ($usuario){
+                        $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                        $m->to( $usuario->email, $usuario->name)->subject('Confirmacíon de orden de envío');
+                    });
+
+                    Mail::send('emails.confirmacionAdminEfectivo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
+                        $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                        $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío');
+                    });
+
+                    return redirect()->route('home')->with('confirmada',1);
                 }
             }else{
                 return redirect('/home');

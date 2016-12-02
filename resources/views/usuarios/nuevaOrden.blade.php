@@ -101,8 +101,8 @@
                             <br>
                             <label for="originCargoService">Servicio de carga</label>
                             <select name="originCargoService" id="originCargoService" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                <option value="conServicioCarga">Sin maniobra de carga</option>
-                                <option value="sinServicioCarga">Con maniobra de carga</option>
+                                <option value="sinServicioCarga">Sin maniobra de carga</option>
+                                <option value="conServicioCarga">Con maniobra de carga</option>
                             </select>
 
                         </div>
@@ -150,8 +150,8 @@
                             <br>
                             <label for="destinationCargoService">Servicio de descarga</label>
                             <select name="destinationCargoService" id="destinationCargoService" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                                <option value="conServicioCarga">Sin maniobra de descarga</option>
-                                <option value="sinServicioCarga">Con maniobra de descarga</option>
+                                <option value="sinServicioDescarga">Sin maniobra de descarga</option>
+                                <option value="conServicioDescarga">Con maniobra de descarga</option>
                             </select>
                         </div>
                     </div>

@@ -6,6 +6,15 @@
         <div class="container">
             <div class="col-md-offset-3 col-md-6">
                 <h3 class="text-center">Registrar Datos del pago</h3>
+                @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
                 <hr>
                 <form action="/postPagoTC" method="post" id="card-form">
                     <span class="card-errors"></span>

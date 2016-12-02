@@ -9,41 +9,51 @@
 | and give it the controller to call when that URI is requested.
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
 
-Route::auth();
+Route::group(['middleware' => 'web'], function() {
+    Route::auth();
 
-Route::get('/home', 'HomeController@index');
+    Route::get('/home', [
+        'as' => 'home',
+        'uses'=> 'HomeController@index'
+    ]);
 
 // New orders routes
-Route::get('/crearOrden', 'HomeController@createOrder');
-Route::post('/postCrearOrden', 'HomeController@postCreateOrder');
+    Route::get('/crearOrden', 'HomeController@createOrder');
+    Route::post('/postCrearOrden', 'HomeController@postCreateOrder');
 
-Route::get('/crearCompania', 'CorporationController@createCorporation');
-Route::post('/postCrearCompania','CorporationController@postCreateCorporation');
+    Route::get('/crearCompania', 'CorporationController@createCorporation');
+    Route::post('/postCrearCompania','CorporationController@postCreateCorporation');
 
-Route::post('/postCrearConfirmacion','HomeController@postCreateConfirmation');
-Route::post('/postConfirmar','HomeController@postConfirm');
-Route::get('/verOrden/{id}','HomeController@viewOrder');
-Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
+    Route::post('/postCrearConfirmacion','HomeController@postCreateConfirmation');
+    Route::post('/postConfirmar','HomeController@postConfirm');
+    Route::get('/verOrden/{id}','HomeController@viewOrder');
+    Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
 
-Route::get('/generarPagoOxxo/{id}','HomeController@getOxxoPaymentView');
-Route::get('/generarPagoTC/{id}','HomeController@getCreditcardPaymentView');
+    Route::get('/generarPagoOxxo/{id}','HomeController@getOxxoPaymentView');
+    Route::get('/generarPagoTC/{id}','HomeController@getCreditcardPaymentView');
 
-Route::post('/postPagoTC','HomeController@postCCPayment');
+    Route::post('/postPagoTC','HomeController@postCCPayment');
 
-Route::get('/registerCarrier','FrontendController@registerCarrier');
+    Route::get('/registerCarrier','FrontendController@registerCarrier');
 
-Route::get('/asociarTransportista/{id}','HomeController@asociarTransportista');
-Route::post('/postAsociarTransportista','HomeController@postAsociarTransportista');
+    Route::get('/asociarTransportista/{id}','HomeController@asociarTransportista');
+    Route::post('/postAsociarTransportista','HomeController@postAsociarTransportista');
 
-Route::post('/postShipment','HomeController@postShipment');
+    Route::post('/postShipment','HomeController@postShipment');
 
-Route::get('/datosPago','HomeController@mostrarDatosPago');
+    Route::get('/datosPago','HomeController@mostrarDatosPago');
 
-Route::post('/autorizarEnvio/{id}','HomeController@autorizarEnvio');
+    Route::post('/autorizarEnvio/{id}','HomeController@autorizarEnvio');
+
+    Route::get('/', function () {
+        return view('welcome');
+    });
+
+});
+
+
+
 
 Route::group(['middleware'=>'cors','prefix' => 'api/v1'], function(){
     Route::resource('authenticate', 'AuthenticateController',['only'=>['index']]);
