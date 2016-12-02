@@ -27,7 +27,12 @@
                             <strong>Ciudad Destino: </strong> {{$order->destinationCity}}
                         </p>
                         <p>
-                            <strong>Servicio Destino: </strong> {{$order->destinationCargoService}}
+                            <strong>Servicio Destino: </strong>
+                            @if($order->destinationCargoService == "sinServicioCarga")
+                                Sin servicio de descarga
+                            @elseif($order->destinationCargoService == "conServicioCarga")
+                                Con servicio de descarga
+                            @endif
                         </p>
                         <hr>
                         <p>
