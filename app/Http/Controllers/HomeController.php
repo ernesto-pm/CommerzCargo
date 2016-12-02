@@ -278,7 +278,20 @@ class HomeController extends Controller
                 $orden->orderStatus = "Pagada";
                 $orden->save();
 
+                Mail::send('emails.pagoTCFinalizado',['order'=>$orden, 'pago' => $pago], function($m) use ($usuario){
+                    $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                    $m->to( $usuario->email, $usuario->name)->subject('Pago realizado');
+                });
+
+                Mail::send('emails.pagoTCFinalizadoAdmin',['order'=>$orden, 'pago' => $pago], function($m) use ($usuario){
+                    $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                    $m->to( 'josecarlos@commerzgroup.com','Admin')->subject('Pago recibido');
+                });
+
+
                 return redirect()->route('home');
+
+
             }else{
                 return redirect()->back()->withErrors('Hubo un error al procesar tu pago, corrobora la información');
             }
