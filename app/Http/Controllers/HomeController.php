@@ -107,12 +107,12 @@ class HomeController extends Controller
             'user_id' => Auth::user()->id
         ]);
 
-        /*
+
         Mail::send('emails.nuevaOrden',['user'=> $user], function($m) use ($user){
             $m->from('notificaciones@commerzcargo.com','CommerzCargo');
             $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Nueva Orden de envío');
         });
-        */
+
 
         return redirect('/home');
 
@@ -370,12 +370,12 @@ class HomeController extends Controller
 
         $user = User::find($order->user_id);
 
-        /*
+
         Mail::send('emails.confirmacion',['user'=> $user,'order'=>$order], function($m) use ($user){
             $m->from('notificaciones@commerzcargo.com','CommerzCargo');
             $m->to( $user->email, $user->name)->subject('Nueva Orden de envío');
         });
-        */
+
 
 
         return redirect('/home');
