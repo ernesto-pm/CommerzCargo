@@ -36,6 +36,10 @@
                                 <img src="{{$pago->barcodeURL}}" style="margin: 0 auto;">
                                 {{$pago->barcode}}
                             </p>
+                            <p>
+                                Usa este codigo de barras para realizar el pago en cualquier Oxxo, imprimelo si es necesario.
+                                Si el Codigo de barras es ilegible, indicale a tu cajero que use el numero debajo de este.
+                            </p>
                             <div class="text-center">
                                 <a type="submit" class="btn btn-success" href="/home">Regresar</a>
                             </div>

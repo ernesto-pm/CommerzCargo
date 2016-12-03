@@ -170,6 +170,12 @@ class HomeController extends Controller
 
 
         if($pago->barcodeURL == null || $pago->barcode ==null) {
+
+            Mail::send('emails.confirmacionAdminOxxo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
+                $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
+            });
+
             $cargo = \Conekta_Charge::create(array(
                 'description' => $pago->description,
                 'reference_id' => 'CommerzCargo-' . $pago->order_id,
