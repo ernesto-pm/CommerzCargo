@@ -332,7 +332,7 @@ class HomeController extends Controller
                     $pago->cargoConekta = true;
                     $pago->save();
 
-                    Mail::send('emails.confirmacionTC',['order'=>$orden], function($m) use ($usuario){
+                    Mail::send('emails.confirmacionTC',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
                         $m->from('notificaciones@commerzcargo.com','CommerzCargo');
                         $m->to( $usuario->email, $usuario->name)->subject('Confirmacíon de orden de envío');
                     });

@@ -46,3 +46,13 @@ A continuación se encuentran los detalles de el envío:
 <p>
     Tipo de empaque: {{$order->packageType}}
 </p>
+<hr>
+<p>
+    Nombre del solicitante: {{$order->owner->name}}
+</p>
+<p>
+    Email del solicitante: {{$order->owner->email}}
+</p>
+<p>
+    Teléfono del solicitante: {{$order->owner->phonenumber}}
+</p>
