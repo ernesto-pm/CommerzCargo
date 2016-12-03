@@ -46,3 +46,4 @@ A continuación se encuentran los detalles de tu envío:
 <p>
     Tipo de empaque: {{$order->packageType}}
 </p>
+

@@ -166,7 +166,7 @@ class HomeController extends Controller
         $fecha += 2592000;
 
         $usuario = Auth::user();
-        $orden = Order::find($pago->order_id);
+        $orden = Order::find($pago->order_id)->first();
 
 
         if($pago->barcodeURL == null || $pago->barcode ==null) {
@@ -314,7 +314,8 @@ class HomeController extends Controller
         $orden = Order::find($data->idOrden);
         $ordenesUsuario = $usuario->orders;
 
-        $confirmationOrder = Orderconfirmation::find($orden->id);
+        $confirmationOrder = Orderconfirmation::where('order_id',$orden->id)->first();
+
 
         if($ordenesUsuario.contains($orden)){
             if($orden->orderStatus != 'Confirmada'){
