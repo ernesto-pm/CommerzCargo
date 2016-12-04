@@ -1,9 +1,14 @@
-<h5>Aviso de confirmación de pago</h5>
+Tu pago ha sido configurado para ser realizado en un OXXO
 <p>
-    Un usuario ha confirmado un envío en CommerzCargo.
-    <br>
-    A continuacion se presentan los datos de el envío:
+    Cantidad a pagar: {{$pago->amount}}
+    <img src="{{$pago->payment_method->barcode_url}}" style="margin: 0 auto;">
+    {{$pago->payment_method->barcode}}
 </p>
+
+A continuación se encuentran los detalles de tu envío:
+
+<hr>
+
 <p>
     Estado de origen: {{$order->originState}}
 </p>
@@ -35,7 +40,7 @@
     Tipo de envío: {{$order->sendType}}
 </p>
 <p>
-    Estatus del envío: {{$order->orderStatus}}
+    Estatus de la orden: {{$order->orderStatus}}
 </p>
 <p>
     Tipo de cargamento: {{$order->cargoType}}
@@ -43,15 +48,4 @@
 <p>
     Tipo de empaque: {{$order->packageType}}
 </p>
-<hr>
-<p>
-    Nombre del solicitante: {{$order->owner->name}}
-</p>
-<p>
-    Email del solicitante: {{$order->owner->email}}
-</p>
-<p>
-    Teléfono del solicitante: {{$order->owner->phonenumber}}
-</p>
 
-Recuerda que este envío esta configurado para ser <b>pagado al momento de llegar (En efectivo).</b>

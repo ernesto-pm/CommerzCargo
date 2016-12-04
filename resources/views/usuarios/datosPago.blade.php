@@ -37,7 +37,7 @@
                                 {{$pago->barcode}}
                             </p>
                             <p>
-                                Usa este codigo de barras para realizar el pago en cualquier Oxxo, imprimelo si es necesario.
+                                Usa este codigo de barras para realizar el pago en cualquier Oxxo, imprimelo si es necesario, despues muestralo en la caja para realizar tu pago.
                                 Si el Codigo de barras es ilegible, indicale a tu cajero que use el numero debajo de este.
                             </p>
                             <div class="text-center">
