@@ -1,9 +1,9 @@
 Tu pago ha sido configurado para ser realizado en un OXXO
 <p>
-    Cantidad a pagar: {{$pago->amount}}
-    <img src="{{$pago->barcodeURL}}" style="margin: 0 auto;">
+    Cantidad a pagar: {{$pago->amount/100}}
+    <img src="{{$pago->payment_method->barcode_url}}" style="margin: 0 auto;">
     <br>
-    {{$pago->barcode}}
+    {{$pago->payment_method->barcode}}
 </p>
 
 A continuación se encuentran los detalles de tu envío:

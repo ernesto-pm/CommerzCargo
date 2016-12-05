@@ -215,7 +215,7 @@ class HomeController extends Controller
             $pago->barcode = $cargo->payment_method->barcode;
             $pago->save();
 
-            Mail::send('emails.confirmacionOxxo',['order'=>$orden, 'pago' => $pago], function($m) use ($usuario){
+            Mail::send('emails.confirmacionOxxo',['order'=>$orden, 'pago' => $cargo], function($m) use ($usuario){
                 $m->from('notificaciones@commerzcargo.com','CommerzCargo');
                 $m->to( $usuario->email, $usuario->name)->subject('Pago oxxo configurado');
             });
