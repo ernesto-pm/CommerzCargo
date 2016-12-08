@@ -196,14 +196,37 @@
                     <h2 class="section-heading">¡Llámanos!</h2>
                     <hr class="primary">
                     <p>Ponte en contacto con nosotros para que comiences a enviar de la manera CommerzCargo!</p>
+                    <div class="row">
+                        <div class="col-sm-4 col-lg-offset-4 text-left">
+                            <p>
+                                <i class="fa fa-desktop" aria-hidden="true" style="color:#f8a531"></i> info@CommerzGroup.com
+                                <br>
+                                <br>
+                                <i class="fa fa-phone" aria-hidden="true " style="color:#f8a531"></i> T.(55) 7154 1509
+                                <br>
+                                <br>
+                                <i class="fa fa-building-o" aria-hidden="true" style="color:#f8a531 "></i> Varsovia 36, Juarez. 06600, CDMX
+                            </p>
+                        </div>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-lg-offset-2 text-center">
-                    <i class="fa fa-phone fa-3x wow bounceIn"></i>
-                    <p>55-8534-0831</p>
+            </div>
+            <hr>
+            <div class="row text-center">
+                <h2 class="section-heading">Instituciones con las que hemos colaborado</h2>
+                <div class="col-md-4">
+                    <img class="img img-responsive" style="margin: 0 auto;" src="landing/img/itesm.jpeg">
                 </div>
-                <div class="col-lg-4 text-center">
-                    <i class="fa fa-envelope-o fa-3x wow bounceIn" data-wow-delay=".1s"></i>
-                    <p><a href="mailto:info@commerzgroup.com">info@commerzgroup.com</a></p>
+                <div class="col-md-4">
+                    <img class="img img-responsive" style="margin: 0 auto;" src="landing/img/ibm.png">
+                </div>
+                <div class="col-md-4">
+                    <img class="img img-responsive" style="margin: 0 auto;" src="landing/img/sendgrid.png">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 text-center">
+                    <a href="landing/terminos.pdf">Terminos y condiciones</a>
                 </div>
             </div>
         </div>

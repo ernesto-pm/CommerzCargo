@@ -29,7 +29,7 @@ return [
     |
     */
 
-    'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+    'host' => env('MAIL_HOST', 'p3plcpnl0519.prod.phx3.secureserver.net'),
 
     /*
     |--------------------------------------------------------------------------
@@ -55,7 +55,7 @@ return [
     |
     */
 
-    'from' => ['address' => null, 'name' => null],
+    'from' => ['address' => 'mailer@commerzcargo.com', 'name' => 'info@commerzcargo.com'],
 
     /*
     |--------------------------------------------------------------------------

@@ -30,6 +30,7 @@
     <link rel="shortcut icon" href="favicon.ico">
 
 
+
 </head>
 <body class="login">
 
@@ -58,6 +59,8 @@
 
 <script src="{!! URL::asset('theme/assets/global/scripts/app.min.js')!!}"></script>
 <script src="{!! URL::asset('theme/assets/pages/scripts/login-4.js')!!}"></script>
+
+<script src="{!! URL::asset('landing/js/validations.js')!!}"></script>
 
 </body>
 

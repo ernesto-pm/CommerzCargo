@@ -61,8 +61,10 @@
                 <p> ¿No tienes una cuenta aún?&nbsp;
                     <a href="/register" id="register-btn"> Registrate </a>
                 </p>
+                <p> ¿Olvidaste tu contraseña?&nbsp;
+                    <a href="/password/reset" id="register-btn"> Recuperala </a>
+                </p>
             </div>
-
         </form>
     </div>
 

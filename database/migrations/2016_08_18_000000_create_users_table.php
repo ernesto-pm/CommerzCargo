@@ -18,7 +18,8 @@ class CreateUsersTable extends Migration
             $table->string('lastname');
             $table->integer('corporation_id')->unsigned()->nullable();
             $table->foreign('corporation_id')->references('id')->on('corporations');
-            $table->string('phonenumber');
+            $table->string('personalPhoneNumber');
+            $table->string('officePhoneNumber');
             $table->string('city');
             $table->string('state');
             $table->string('email')->unique();

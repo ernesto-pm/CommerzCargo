@@ -18,23 +18,178 @@
     </div>
 
     <div class="content">
-        <form class="login-form" role="form" method="POST" action="{{url('/register')}}" id="register" novalidate="novalidate">
+
+        <form id="form_sample_1" novalidate="novalidate" method="post" action="{{url('/register')}}">
+            <div class="form-body">
+                <div class="alert alert-danger display-hide">
+                    <button class="close" data-close="alert"></button>
+                    Tienes algunos errores, solucionalos primero.
+                    @if (count($errors) > 0)
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    @endif
+                </div>
+
+                {{ csrf_field() }}
+
+                <!-- Nombre -->
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" placeholder="" name="name" style="background: none">
+                    <label for="name" style="color:white;">Nombre</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tu nombre</span>
+                </div>
+                <!-- Termina nombre -->
+
+                <br>
+
+                <!-- Apellidos -->
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" placeholder="" name="lastName" style="background: none">
+                    <label for="lastName" style="color:white;">Apellidos</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tus apellidos</span>
+                </div>
+                <!-- Termina Apellidos -->
+
+                <br>
+
+                <!-- E-mail -->
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" placeholder="" name="email" style="background: none">
+                    <label for="email" style="color:white;">E-mail</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tu email</span>
+                </div>
+                <!-- Termina e-mail -->
+
+                <br>
+
+                <!-- Teléfono Personal-->
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" placeholder="" name="personalPhoneNumber" style="background: none">
+                    <label for="personalPhoneNumber" style="color:white;">Celular</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tu número telefónico personal</span>
+                </div>
+                <!-- Termina teléfono -->
+
+                <br>
+
+                <!-- Teléfono Oficina -->
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" placeholder="" name="officePhoneNumber" style="background: none">
+                    <label for="officePhoneNumber" style="color:white;">Teléfono Oficina</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tu número telefónico de negocios</span>
+                </div>
+                <!-- Termina teléfono oficina-->
+
+                <br>
+
+                <!-- Estado -->
+                <div class="form-group form-md-line-input">
+                    <select class="form-control" name="state" style="background: none;">
+                        <option value="">Seleccionar estado</option>
+                        <option value="Aguascalientes">Aguascalientes</option>
+                        <option value="Baja California">Baja California</option>
+                        <option value="Baja California Sur">Baja California Sur</option>
+                        <option value="Campeche">Campeche</option>
+                        <option value="Chiapas">Chiapas</option>
+                        <option value="Chihuaha">Chihuaha</option>
+                        <option value="CDMX">CDMX</option>
+                        <option value="Coahuila">Coahuila</option>
+                        <option value="Colima">Colima</option>
+                        <option value="Durango">Durango</option>
+                        <option value="Guanajuato">Guanajuato</option>
+                        <option value="Guerrero">Guerrero</option>
+                        <option value="Hidalgo">Hidalgo</option>
+                        <option value="Jalisco">Jalisco</option>
+                        <option value="Estado de México">Estado de México</option>
+                        <option value="Michoacán">Michoacán</option>
+                        <option value="Nayarit">Nayarit</option>
+                        <option value="Nuevo León">Nuevo León</option>
+                        <option value="Oaxaca">Oaxaca</option>
+                        <option value="Puebla">Puebla</option>
+                        <option value="Querétaro">Querétaro</option>
+                        <option value="Quintana Roo">Quintana Roo</option>
+                        <option value="San Luis Potosí">San Luis Potosí</option>
+                        <option value="Sinaloa">Sinaloa</option>
+                        <option value="Sonora">Sonora</option>
+                        <option value="Tabasco">Tabasco</option>
+                        <option value="Tamaulipas">Tamaulipas</option>
+                        <option value="Tlaxcala">Tlaxcala</option>
+                        <option value="Veracruz">Veracruz</option>
+                        <option value="Yucatán">Yucatán</option>
+                        <option value="Zacatecas">Zacatecas</option>
+                    </select>
+                    <label for="state" style="color:white;">Estado</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Especifica el estado</span>
+                </div>
+                <!-- Termina Estado -->
+
+                <br>
+
+                <!-- Ciudad -->
+                <div class="form-group form-md-line-input">
+                    <input type="text" class="form-control" placeholder="" name="city" style="background: none">
+                    <label for="city" style="color:white;">Ciudad</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa la ciudad</span>
+                </div>
+                <!-- Termina Ciudad -->
+
+                <br>
+
+                <!-- Password -->
+                <div class="form-group form-md-line-input">
+                    <input type="password" class="form-control" placeholder="" name="password" style="background: none" id="password">
+                    <label for="city" style="color:white;">Password</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tu password</span>
+                </div>
+                <!-- Termina Password -->
+
+                <br>
+
+                <!-- Password Confirmation -->
+                <div class="form-group form-md-line-input">
+                    <input type="password" class="form-control" placeholder="" name="password_confirmation" style="background: none">
+                    <label for="city" style="color:white;">Confirmar password</label>
+                    <div class="form-control-focus"> </div>
+                    <span class="help-block">Ingresa tu password</span>
+                </div>
+                <!-- Termina Password Confirmation -->
+
+                <input name="tipoDeUsuario" type="hidden" value="shipper"/>
+
+
+                <div class="form-actions">
+                    <button type="submit" class="btn green pull-right"> Registrar </button>
+                </div>
+            </div>
+        </form>
+
+
+       <!--
+        <form class="login-form" role="form" method="POST" action="{{url('/register')}}" id="form_sample_1" novalidate="novalidate">
             <h3 class="form-title">Registro Cliente</h3>
 
-            {{ csrf_field() }}
 
-            <!-- Nombre -->
+
+
             <div class="form-group form-md-line-input form-md-floating-label">
-                <input type="text" class="form-control" id="name" name="name" value="{{ $errors->has('name') ? " " :old('name')}}" style="background: none">
+                <input type="text" class="form-control" id="name" name="name"  style="background: none">
                 <label for="name" style="color:white;">Nombre</label>
-                @if ($errors->has('name'))
-                    <span class="help-block">
-                        <strong>{{ $errors->first('name') }}</strong>
-                    </span>
-                @endif
+
+                <div class="form-control-focus"> </div>
+                <span class="help-block">enter your full name</span>
+
             </div>
 
-            <!-- Apellidos -->
+
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="lastName" name="lastName" value="{{ old('lastName') }}" style="background: none">
                 <label for="lastName" style="color:white;">Apellidos</label>
@@ -46,14 +201,12 @@
                 @endif
             </div>
 
-            <!-- email -->
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="email" name="email" value="{{ old('email') }}" style="background: none">
                 <label for="email" style="color:white;">E-mail</label>
             </div>
 
-            <!-- Compania -->
-            <!--
+
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="companyName" name="companyName" value="{{ old('companyName') }}" style="background: none">
                 <label for="companyName" style="color:white;">Compañia</label>
@@ -64,9 +217,7 @@
                     </span>
                 @endif
             </div>
-            -->
 
-            <!-- Telefono -->
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="phoneNumber" name="phoneNumber" value="{{ old('phoneNumber') }}" style="background: none">
                 <label for="companyName" style="color:white;">Teléfono</label>
@@ -78,7 +229,7 @@
                 @endif
             </div>
 
-            <!-- Ciudad -->
+
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="city" name="city" value="{{ old('city') }}" style="background: none">
                 <label for="city" style="color:white;">Ciudad</label>
@@ -90,7 +241,7 @@
                 @endif
             </div>
 
-            <!-- Estado -->
+
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="text" class="form-control" id="state" name="state" value="{{ old('state') }}" style="background: none">
                 <label for="state" style="color:white;">Estado</label>
@@ -102,7 +253,7 @@
                 @endif
             </div>
 
-            <!-- Password -->
+
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="password" class="form-control" id="password" name="password" value="{{ old('password') }}" style="background: none">
                 <label for="state" style="color:white;">Password</label>
@@ -114,7 +265,7 @@
                 @endif
             </div>
 
-            <!-- Password Confirm -->
+
             <div class="form-group form-md-line-input form-md-floating-label">
                 <input type="password" class="form-control" id="password" name="password_confirmation" value="{{ old('password_confirmation') }}" style="background: none">
                 <label for="state" style="color:white;">Confirmar Password</label>
@@ -126,14 +277,8 @@
                 @endif
             </div>
 
-            <input name="tipoDeUsuario" type="hidden" value="shipper"/>
 
-            <!--
-            <select class="form-control edited" id="form_control_1" name="tipoDeUsuario">
-                <option value="carrier">Transportista</option>
-                <option value="shipper">Cliente</option>
-            </select>
-            -->
+
 
             <br>
 
@@ -142,6 +287,7 @@
             </div>
 
         </form>
+        -->
     </div>
 
 
@@ -297,6 +443,8 @@
     </div>
 </div>
 -->
+
+
 
 
 

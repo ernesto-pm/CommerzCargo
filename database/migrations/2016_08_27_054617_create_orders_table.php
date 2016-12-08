@@ -31,7 +31,12 @@ class CreateOrdersTable extends Migration
             $table->string('orderStatus')->default('pendiente');
 
             $table->string('cargoType');
+
             $table->string('packageType');
+            $table->double('packageNumber');
+            $table->double('packageWeight');
+            $table->double('packageVolume');
+
 
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users');

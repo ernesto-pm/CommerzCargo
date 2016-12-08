@@ -10,7 +10,7 @@
 */
 
 
-Route::group(['middleware' => 'web'], function() {
+
     Route::auth();
 
     Route::get('/home', [
@@ -27,6 +27,13 @@ Route::group(['middleware' => 'web'], function() {
 
     Route::post('/postCrearConfirmacion','HomeController@postCreateConfirmation');
     Route::post('/postConfirmar','HomeController@postConfirm');
+
+    Route::post('/postConfirmarEfectivo','HomeController@postConfirmarEfectivo');
+    Route::post('/postConfirmarTC','HomeController@postConfirmarTC');
+    Route::post('/postConfirmarOxxo','HomeController@postConfirmarOxxo');
+
+
+
     Route::get('/verOrden/{id}','HomeController@viewOrder');
     Route::get('/verConfirmacion/{id}','HomeController@viewConfirmation');
 
@@ -50,7 +57,7 @@ Route::group(['middleware' => 'web'], function() {
         return view('welcome');
     });
 
-});
+
 
 
 

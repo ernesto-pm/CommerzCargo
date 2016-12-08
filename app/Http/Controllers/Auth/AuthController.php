@@ -55,7 +55,8 @@ class AuthController extends Controller
             'city' => 'required',
             'state' => 'required',
             'lastName' => 'required',
-            'phoneNumber' => 'required'
+            'personalPhoneNumber' => 'required',
+            'officePhoneNumber' => 'required'
         ]);
     }
 
@@ -65,8 +66,7 @@ class AuthController extends Controller
      * @param  array  $data
      * @return User
      */
-    protected function create(array $data)
-    {
+    protected function create(array $data){
 
         $tipoDeUsuario = $data['tipoDeUsuario'];
 
@@ -75,7 +75,8 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'lastname' => $data['lastName'],
-            'phonenumber' => $data['phoneNumber'],
+            'personalPhoneNumber' => $data['personalPhoneNumber'],
+            'officePhoneNumber' => $data['officePhoneNumber'],
             'city' => $data['city'],
             'state' => $data['state'],
         ]);

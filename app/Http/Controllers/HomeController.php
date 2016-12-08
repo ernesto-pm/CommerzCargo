@@ -16,8 +16,8 @@ use Mail;
 use Config;
 use DB;
 
-use Conekta;
 
+use Conekta\Conekta;
 class HomeController extends Controller
 {
     /**
@@ -88,7 +88,7 @@ class HomeController extends Controller
         //dd(Config::get('mail'));
 
         $user = Auth::user();
-        $time = date( 'Y-m-d H:i:s', strtotime($data['dueDate']));
+        $time = date( 'Y-m-d H:i:s', strtotime($data['dueDate']." ".$data['dueTime']));
 
         $order = Order::create([
             'originState' => $data['originState'],
@@ -100,6 +100,9 @@ class HomeController extends Controller
             'dueDate' => $time,
             'cargoType' => $data['cargoType'],
             'packageType' => $data['packageType'],
+            'packageNumber' => $data['packageNumber'],
+            'packageWeight' => $data['packageWeight'],
+            'packageVolume' => $data['packageVolume'],
             'transportationType' => $data['transportationType'],
             'vehicleType' => $data['vehicleType'],
             'sendType' => $data['sendType'],
@@ -158,7 +161,7 @@ class HomeController extends Controller
     }
 
     public function getOxxoPaymentView($id){
-        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        \Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         $pago = Payment::find($id);
         //echo $pago;
@@ -176,7 +179,7 @@ class HomeController extends Controller
                 $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
             });
 
-            $cargo = \Conekta_Charge::create(array(
+            $cargo = \Conekta\Charge::create(array(
                 'description' => $pago->description,
                 'reference_id' => 'CommerzCargo-' . $pago->order_id,
                 'amount' => ($pago->amount * 100),
@@ -248,8 +251,10 @@ class HomeController extends Controller
         $orden = Order::find($pago->order_id);
         $confirmacion = $orden->orderConfirmation;
 
+        echo $usuario;
+
         try {
-            $cargo = \Conekta_Charge::create(array(
+            $cargo = \Conekta\Charge::create(array(
                 'description' => $pago->description,
                 'reference_id' => 'CommerzCargo-' . $pago->order_id,
                 'amount' => ($pago->amount * 100),
@@ -257,7 +262,7 @@ class HomeController extends Controller
                 'card' => $request->conektaTokenId,
                 'details' => array(
                 'name' => $usuario->name,
-                'phone' => $usuario->phonenumber,
+                'phone' => $usuario->personalPhoneNumber,
                 'email' => $usuario->email,
                 'customer' => array(
                     'corporation_name' => $usuario->corporation_id . ' ',
@@ -314,7 +319,6 @@ class HomeController extends Controller
     }
 
     public function postConfirm(Request $data){
-
         // Llave de pruebas
         Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
@@ -381,6 +385,197 @@ class HomeController extends Controller
 
                     return redirect()->route('home')->with('confirmada',1);
                 }
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+    }
+
+
+
+    function postConfirmarEfectivo(Request $data){
+
+        $usuario = User::find($data->idUsuario);
+        $orden = Order::find($data->idOrden);
+        $ordenesUsuario = $usuario->orders;
+
+        $confirmationOrder = Orderconfirmation::where('order_id',$orden->id)->first();
+
+
+        if($ordenesUsuario.contains($orden)){
+            if($orden->orderStatus != 'Confirmada'){
+                $orden->orderStatus = "Pago en efectivo";
+                $orden->save();
+
+
+                $pago = new Payment();
+                $pago->description = 'Pago en efectivo';
+                $pago->order_id = $orden->id;
+                $pago->user_id = Auth::user()->id;
+                $pago->amount = $confirmationOrder->grandTotal;
+                $pago->cargoConekta = false;
+                $pago->save();
+
+                $orden->orderStatus = "Pagar al entregar";
+                $confirmationOrder->status = "Por salir";
+                $orden->save();
+                $confirmationOrder->save();
+
+                Mail::send('emails.confirmacionEfectivo',['order'=>$orden], function($m) use ($usuario){
+                    $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                    $m->to( $usuario->email, $usuario->name)->subject('Confirmacíon de orden de envío');
+                });
+
+                Mail::send('emails.confirmacionAdminEfectivo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
+                    $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                    $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío');
+                });
+
+                return redirect()->route('home');
+
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+
+    }
+
+    function postConfirmarTC(Request $data){
+        $usuario = User::find($data->idUsuario);
+        $orden = Order::find($data->idOrden);
+        $ordenesUsuario = $usuario->orders;
+
+        $confirmationOrder = Orderconfirmation::where('order_id',$orden->id)->first();
+
+        if($ordenesUsuario.contains($orden)){
+            if($orden->orderStatus != 'Confirmada'){
+                $orden->orderStatus = "Pago con TC";
+                $orden->save();
+
+
+                $pago = new Payment();
+                $pago->description = 'Pago pendiente TC';
+                $pago->order_id = $orden->id;
+                $pago->user_id = Auth::user()->id;
+                $pago->amount = $confirmationOrder->grandTotal;
+                $pago->cargoConekta = false;
+                $pago->save();
+
+                $orden->orderStatus = "Pago pendiente TC";
+                $confirmationOrder->status = "Pago pendiente TC";
+                $orden->save();
+                $confirmationOrder->save();
+
+                return view('usuarios.nuevoPagoTC',array('pagoID'=>$pago->id));
+
+            }else{
+                return redirect('/home');
+            }
+        }else{
+            return redirect('/home');
+        }
+    }
+
+    function postConfirmarOxxo(Request $data){
+        // Llave de pruebas
+        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+
+        // Llave de produccion
+        //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
+
+        $usuario = User::find($data->idUsuario);
+        $orden = Order::find($data->idOrden);
+        $ordenesUsuario = $usuario->orders;
+
+        $confirmationOrder = Orderconfirmation::where('order_id',$orden->id)->first();
+
+
+        if($ordenesUsuario.contains($orden)){
+            if($orden->orderStatus != 'Confirmada'){
+                $orden->orderStatus = "Pago Pendiente";
+                $orden->save();
+
+                $pago = new Payment();
+                $pago->description = 'Pago pendiente en CommerzCargo';
+                $pago->order_id = $orden->id;
+                $pago->user_id = Auth::user()->id;
+                $pago->amount = $confirmationOrder->grandTotal;
+                $pago->cargoConekta = true;
+                $pago->save();
+
+                $orden->orderStatus = "Pago pendiente Oxxo";
+                $confirmationOrder->status = "Pago pendiente Oxxo";
+                $orden->save();
+                $confirmationOrder->save();
+
+
+                $fecha = strtotime($pago->created_at);
+                $fecha += 2592000;
+
+                $usuario = Auth::user();
+                $orden = Order::find($pago->order_id)->first();
+
+
+                if($pago->barcodeURL == null || $pago->barcode ==null) {
+
+                    Mail::send('emails.confirmacionAdminOxxo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
+                        $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                        $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
+                    });
+
+                    $cargo = \Conekta\Charge::create(array(
+                        'description' => $pago->description,
+                        'reference_id' => 'CommerzCargo-' . $pago->order_id,
+                        'amount' => ($pago->amount * 100),
+                        'currency' => 'MXN',
+                        'cash' => array(
+                            'type' => 'oxxo',
+                            'expires_at' => $fecha
+                        ),
+                        'details' => array(
+                            'name' => $usuario->name,
+                            'phone' => $usuario->phonenumber,
+                            'email' => $usuario->email,
+                            'customer' => array(
+                                'corporation_name' => $usuario->corporation_id . ' ',
+                                'logged_in' => true,
+                                'successful_purchases' => 0,
+                                'created_at' => 1379784950,
+                                'updated_at' => 1379784950,
+                                'offline_payments' => 0,
+                                'score' => 0
+                            ),
+                            'line_items' => array(
+                                array(
+                                    'name' => 'Envío commerzcargo',
+                                    'description' => "Envio de: " . $orden->originState . "-" . $orden->originCity . " a " . $orden->destinationState . "-" . $orden->destinationState,
+                                    'unit_price' => ($pago->amount * 100),
+                                    'quantity' => 1,
+                                    'sku' => ($orden->id),
+                                    'type' => 'cargo'
+                                )
+                            )
+                        )
+                    ));
+
+                    $pago->barcodeURL = $cargo->payment_method->barcode_url;
+                    $pago->barcode = $cargo->payment_method->barcode;
+                    $pago->save();
+
+                    Mail::send('emails.confirmacionOxxo',['order'=>$orden, 'pago' => $cargo], function($m) use ($usuario){
+                        $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                        $m->to( $usuario->email, $usuario->name)->subject('Pago oxxo configurado');
+                    });
+
+                    return view('usuarios.datosPago', array('pago' => $cargo, 'nuevoPago' => true));
+                }else{
+                    return view('usuarios.datosPago', array('pago' => $pago, 'nuevoPago' => false));
+                }
+
             }else{
                 return redirect('/home');
             }

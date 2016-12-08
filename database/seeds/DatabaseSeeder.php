@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
         $admin = User::create(array(
            'name'=>'Jose Carlos',
             'lastname'=>'Castro',
-            'phonenumber' => '5512121212',
+            'personalPhoneNumber' => '5585340831',
+            'officePhoneNumber' => '5585340831',
             'city' => 'Mexico',
             'state' => 'Mexico',
             'email' => 'josecarlos@commerzgroup.com',
