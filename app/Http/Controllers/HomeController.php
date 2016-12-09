@@ -482,7 +482,7 @@ class HomeController extends Controller
 
     function postConfirmarOxxo(Request $data){
         // Llave de pruebas
-        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
         //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
