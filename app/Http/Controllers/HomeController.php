@@ -16,8 +16,8 @@ use Mail;
 use Config;
 use DB;
 
+use Conekta;
 
-use Conekta\Conekta;
 class HomeController extends Controller
 {
     /**
