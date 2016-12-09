@@ -10,7 +10,7 @@
         "guzzlehttp/guzzle": "^6.2",
         "tymon/jwt-auth": "0.5.*",
         "barryvdh/laravel-cors": "^0.8.2",
-        "conekta/conekta-php": "dev-master"
+        "conekta/conekta-php": "3.0.0"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -19,7 +19,7 @@
         "symfony/css-selector": "2.8.*|3.0.*",
         "symfony/dom-crawler": "2.8.*|3.0.*",
         "laracasts/generators": "^1.1",
-        "conekta/conekta-php": "dev-master"
+        "conekta/conekta-php": "3.0.0"
     },
     "autoload": {
         "classmap": [
