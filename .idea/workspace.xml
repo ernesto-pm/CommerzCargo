@@ -4,11 +4,6 @@
     <list default="true" id="a22757c3-ac30-4859-aa43-56d19408f7fb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/HomeController.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/administrators/orderResume.blade.php" afterPath="$PROJECT_DIR$/resources/views/administrators/orderResume.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/confirmacionAdminEfectivo.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/confirmacionAdminEfectivo.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/confirmacionAdminOxxo.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/confirmacionAdminOxxo.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/confirmacionAdminTC.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/confirmacionAdminTC.blade.php" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/emails/pagoTCFinalizadoAdmin.blade.php" afterPath="$PROJECT_DIR$/resources/views/emails/pagoTCFinalizadoAdmin.blade.php" />
     </list>
     <ignored path="CommerzCargo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,7 +29,7 @@
         <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.33285302">
-              <caret line="181" column="29" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="29" />
+              <caret line="484" column="66" selection-start-line="484" selection-start-column="66" selection-end-line="484" selection-end-column="66" />
               <folding>
                 <element signature="e#40#60#0#PHP" expanded="true" />
               </folding>
@@ -755,7 +750,7 @@
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/HomeController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33285302">
-          <caret line="181" column="29" selection-start-line="181" selection-start-column="21" selection-end-line="181" selection-end-column="29" />
+          <caret line="484" column="66" selection-start-line="484" selection-start-column="66" selection-end-line="484" selection-end-column="66" />
           <folding>
             <element signature="e#40#60#0#PHP" expanded="true" />
           </folding>

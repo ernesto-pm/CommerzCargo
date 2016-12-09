@@ -238,7 +238,7 @@ class HomeController extends Controller
     public function postCCPayment(Request $request){
 
         // Llave de pruebas
-        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
         //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
@@ -320,7 +320,7 @@ class HomeController extends Controller
 
     public function postConfirm(Request $data){
         // Llave de pruebas
-        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
         //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
@@ -482,7 +482,7 @@ class HomeController extends Controller
 
     function postConfirmarOxxo(Request $data){
         // Llave de pruebas
-        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
         //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
