@@ -57,7 +57,7 @@
                             <strong>Email del solicitante:</strong> {{$order->owner->email}}
                         </p>
                         <p>
-                            <strong>Teléfono del solicitante:</strong> {{$order->owner->phonenumber}}
+                            <strong>Teléfono del solicitante:</strong> {{$order->owner->personalPhoneNumber}}
                         </p>
                     </div>
                     <div class="col-sm-6">

@@ -54,5 +54,5 @@ A continuación se encuentran los detalles de el envío:
     Email del solicitante: {{$order->owner->email}}
 </p>
 <p>
-    Teléfono del solicitante: {{$order->owner->phonenumber}}
+    Teléfono del solicitante: {{$order->owner->personalPhoneNumber}}
 </p>

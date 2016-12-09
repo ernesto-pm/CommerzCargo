@@ -161,7 +161,7 @@ class HomeController extends Controller
     }
 
     public function getOxxoPaymentView($id){
-        \Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         $pago = Payment::find($id);
         //echo $pago;

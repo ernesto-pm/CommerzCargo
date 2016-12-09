@@ -51,7 +51,7 @@
     Email del solicitante: {{$order->owner->email}}
 </p>
 <p>
-    Teléfono del solicitante: {{$order->owner->phonenumber}}
+    Teléfono del solicitante: {{$order->owner->personalPhoneNumber}}
 </p>
 
 Recuerda que este envío esta configurado para ser <b>pagado al momento de llegar (En efectivo).</b>

@@ -51,7 +51,7 @@
     Email del solicitante: {{$order->owner->email}}
 </p>
 <p>
-    Teléfono del solicitante: {{$order->owner->phonenumber}}
+    Teléfono del solicitante: {{$order->owner->personalPhoneNumber}}
 </p>
 
 Este envío esta configurado para ser <b>pagado dentro de Commerzcargo con Conekta</b>
