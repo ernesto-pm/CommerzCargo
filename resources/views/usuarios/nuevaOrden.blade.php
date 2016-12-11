@@ -49,12 +49,13 @@
                         <br>
                         <label for="transportationType">Tipo de vehículo</label>
                         <select name="vehicleType" id="vehicleType" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
-                            <option value="2.5">2.5</option>
-                            <option value="3.5">3.5</option>
-                            <option value="Torton">Torton</option>
-                            <option value="48pies">48pies</option>
-                            <option value="53pies">53pies</option>
-                            <option value="Full">Full</option>
+                            <option value="Vehículo ligero - 500 kg">Vehículo ligero - 500 kg</option>
+                            <option value="Camión - 1.5 Toneladas">Camión - 1.5 Toneladas</option>
+                            <option value="Camión - 2.5 Toneladas">Camión - 2.5 Toneladas</option>
+                            <option value="Camión - 3.5 Toneladas">Camión - 3.5 Toneladas</option>
+                            <option value="Trailer 48pies">Trailer 48pies</option>
+                            <option value="Trailer 53pies">Trailer 53pies</option>
+                            <option value="Trailer Full">Trailer Full</option>
                         </select>
                         <br>
                         <label for="sendType">Tipo de envio</label>

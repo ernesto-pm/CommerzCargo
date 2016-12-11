@@ -125,7 +125,7 @@
 
                 <div class="col-lg-6 col-sm-6">
                     <a class="portfolio-box">
-                        <img src="{!! URL::asset('landing/img/portfolio/1.jpg')!!}" class="img-responsive" alt="">
+                        <img src="{!! URL::asset('landing/img/portfolio/7.jpg')!!}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -140,7 +140,7 @@
                 </div>
                 <div class="col-lg-6 col-sm-6">
                     <a class="portfolio-box">
-                        <img src="{!! URL::asset('landing/img/portfolio/2.jpg')!!}" class="img-responsive" alt="">
+                        <img src="{!! URL::asset('landing/img/portfolio/1.jpg')!!}" class="img-responsive" alt="">
                         <div class="portfolio-box-caption">
                             <div class="portfolio-box-caption-content">
                                 <div class="project-category text-faded">
@@ -189,7 +189,7 @@
         </div>
     </section>
 
-    <section id="contact">
+    <section id="contact" style="padding-bottom: 30px">
         <div class="container">
             <div class="row">
                 <div class="col-lg-8 col-lg-offset-2 text-center">
@@ -211,26 +211,28 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            <div class="row text-center">
-                <h2 class="section-heading">Instituciones con las que hemos colaborado</h2>
-                <div class="col-md-4">
-                    <img class="img img-responsive" style="margin: 0 auto;" src="landing/img/itesm.jpeg">
-                </div>
-                <div class="col-md-4">
-                    <img class="img img-responsive" style="margin: 0 auto;" src="landing/img/ibm.png">
-                </div>
-                <div class="col-md-4">
-                    <img class="img img-responsive" style="margin: 0 auto;" src="landing/img/sendgrid.png">
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center">
-                    <a href="landing/terminos.pdf">Terminos y condiciones</a>
-                </div>
-            </div>
         </div>
     </section>
+
+    <div class="container-fluid">
+        <div class="row text-center" style="background-color: #FF9900">
+            <h2 class="section-heading" style="padding-top: 5px"><b>Instituciones con las que hemos colaborado</b></h2>
+            <div class="col-md-4">
+                <img class="img img-responsive" style="margin: 0 auto; height: 150px;" src="landing/img/itesm.png">
+            </div>
+            <div class="col-md-4">
+                <img class="img img-responsive" style="margin: 0 auto; height: 150px;" src="landing/img/ibm.png">
+            </div>
+            <div class="col-md-4">
+                <img class="img img-responsive" style="margin: 0 auto; height: 150px;" src="landing/img/sendgrid.png">
+            </div>
+        </div>
+        <div class="row" style="background-color: black">
+            <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top:20px;margin-bottom: 20px">
+                <a href="landing/terminos.pdf" style="color:white"><h4>Terminos y condiciones</h4></a>
+            </div>
+        </div>
+    </div>
 
 
     </body>

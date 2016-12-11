@@ -45,9 +45,18 @@
                         <p>
                             <strong>Tipo de envío: </strong> {{$order->sendType}}
                         </p>
+                        <p>
+                            <strong>Numero de paquetes: </strong> {{$order->packageNumber}}
+                        </p>
+                        <p>
+                            <strong>Peso de los paquetes: </strong> {{$order->packageWeight}} kg
+                        </p>
+                        <p>
+                            <strong>Volumen de los paquetes: </strong> {{$order->packageVolume}} m3
+                        </p>
                         <hr>
                         <p>
-                            <strong>Fecha de envío: </strong> {{$order->dueDate}}
+                            <strong>Fecha de envío: </strong> {{date('g:ia',strtotime($order->dueDate))}}
                         </p>
                         <hr>
                         <p>
@@ -57,7 +66,10 @@
                             <strong>Email del solicitante:</strong> {{$order->owner->email}}
                         </p>
                         <p>
-                            <strong>Teléfono del solicitante:</strong> {{$order->owner->personalPhoneNumber}}
+                            <strong>Teléfono del solicitante (Personal):</strong> {{$order->owner->personalPhoneNumber}}
+                        </p>
+                        <p>
+                            <strong>Teléfono del solicitante (Oficina):</strong> {{$order->owner->officePhoneNumber}}
                         </p>
                     </div>
                     <div class="col-sm-6">

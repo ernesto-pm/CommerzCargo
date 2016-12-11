@@ -40,6 +40,10 @@ class AuthController extends Controller
         $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
     }
 
+    protected function getFailedLoginMessage()
+    {
+        return 'Error en email o password, favor de verificar.';
+    }
     /**
      * Get a validator for an incoming registration request.
      *

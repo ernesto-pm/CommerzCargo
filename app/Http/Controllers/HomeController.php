@@ -147,7 +147,7 @@ class HomeController extends Controller
         $confirmationOrder = Orderconfirmation::find($id);
 
         if($confirmationOrder){
-            $order = $confirmationOrder->order()->first();
+            $order = $confirmationOrder->order;
 
             if($order->user_id == Auth::user()->id){
                 //echo "Si la contiene";

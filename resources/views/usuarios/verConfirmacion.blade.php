@@ -20,7 +20,7 @@
                                 Servicio de carga: {{$order->destinationCargoService}}
                             </p>
                             <p>
-                                Fecha de envío: {{$order->dueDate}}
+                                Fecha de envío: {{date('g:ia',strtotime($order->dueDate))}}
                             </p>
                             <hr>
                             <h4>Detalles transporte</h4>
@@ -47,6 +47,18 @@
                             </p>
                             <p>
                                 <b>Total del envio: $ {{$confirmationOrder->grandTotal}}</b>
+                            </p>
+                            <hr>
+                            <h4>Detalles Empaque</h4>
+                            <p>
+                                <strong>Numero de paquetes: </strong> {{$order->packageNumber}}
+                            </p>
+                            <p>
+                                <strong>Peso de los paquetes: </strong> {{$order->packageWeight}} kg
+                            </p>
+                            <p>
+                                <strong>Volumen de los paquetes: </strong> {{$order->packageVolume}} m3
+                            </p>
                             </p>
                         </div>
                     </div>

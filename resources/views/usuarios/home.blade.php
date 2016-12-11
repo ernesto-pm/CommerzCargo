@@ -25,15 +25,14 @@
                 <div class="visual">
                     <i class="fa fa-shopping-cart"></i>
                 </div>
-                <div class="details">
-                    <div class="number">
-                        <span data-counter="counterup" data-value="549">{{count($orders)}}</span>
+                <a href="/crearOrden">
+                    <div class="details">
+                        <div class="number">
+                            <span data-counter="counterup" data-value="549">Solicitar Envío</span>
+                        </div>
                     </div>
-                    <div class="desc"> Envíos Recientes </div>
-                </div>
-                <a class="more" href="/crearOrden"> Registrar Orden
-                    <i class="m-icon-swapright m-icon-white"></i>
                 </a>
+
             </div>
         </div>
 
@@ -96,21 +95,21 @@
                                                 </td>
                                                 <td>
                                                     @if($order->orderConfirmation)
-                                                        {{$order->orderConfirmation->grandTotal}}
+                                                        ${{number_format($order->orderConfirmation->grandTotal, 2) }}
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
-                                                    {{$order->orderStatus}}
                                                     @if($order->orderStatus == "Pendiente")
                                                         Solicitada y pendiente de recibir propuesta de admin
+                                                    @elseif($order->orderStatus == "Por confirmar")
+                                                        <a class="btn btn-info" href="/verConfirmacion/{{$order->orderConfirmation->id}}">Confirmar</a>
+                                                    @elseif($order->orderStatus == "Pago pendiente Oxxo")
+                                                        {{$order->orderStatus}}
+                                                    @elseif($order->orderStatus == "Pagada")
+                                                        {{$order->orderStatus}}
                                                     @endif
 
-                                                    @if($order->orderStatus == "Por confirmar")
-                                                        Propuesta enviada por admin y en proceso de confirmación de cliente
-                                                        <br>
-                                                        <br>
-                                                        <a class="btn btn-info" href="/verConfirmacion/{{$order->orderConfirmation->id}}">Confirmar</a>
-                                                    @endif
+
 
 
                                                 </td>
@@ -180,7 +179,7 @@
                                                                 <a class="btn btn-info" href="/generarPagoOxxo/{{$order->payment->id}}">Pago en Oxxo</a>
                                                                 <a class="btn btn-info" href="/generarPagoTC/{{$order->payment->id}}">Pago con tarjeta de crédito</a>
                                                             @elseif($order->orderStatus == "Por confirmar")
-                                                                <a class="btn btn-info" href="/verConfirmacion/{{$order->orderConfirmation->id}}">Confirmar</a>
+                                                                <a class="btn btn-info" href="/verConfirmacion/{{$order->id}}">Confirmar</a>
                                                             @endif
                                                         </td>
                                                     </tr>
