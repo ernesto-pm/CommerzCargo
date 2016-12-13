@@ -40,6 +40,7 @@
                     <div class="form-control-focus"> </div>
                     <span class="help-block">Ingresa tu nombre</span>
                 </div>
+
                 <!-- Termina nombre -->
 
                 <br>
@@ -62,6 +63,11 @@
                     <div class="form-control-focus"> </div>
                     <span class="help-block">Ingresa tu email</span>
                 </div>
+                @if ($errors->has('email'))
+                    <span class="help-block">
+                        <strong>{{ $errors->first('email') }}</strong>
+                    </span>
+                    @endif
                 <!-- Termina e-mail -->
 
                 <br>

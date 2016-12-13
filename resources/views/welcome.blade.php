@@ -216,7 +216,7 @@
 
     <div class="container-fluid">
         <div class="row text-center" style="background-color: #FF9900">
-            <h2 class="section-heading" style="padding-top: 5px"><b>Instituciones con las que hemos colaborado</b></h2>
+            <h2 class="section-heading" style="padding-top: 5px">Instituciones con las que hemos colaborado</h2>
             <div class="col-md-4">
                 <img class="img img-responsive" style="margin: 0 auto; height: 150px;" src="landing/img/itesm.png">
             </div>
@@ -229,7 +229,7 @@
         </div>
         <div class="row" style="background-color: black">
             <div class="col-lg-8 col-lg-offset-2 text-center" style="margin-top:20px;margin-bottom: 20px">
-                <a href="landing/terminos.pdf" style="color:white"><h4>Terminos y condiciones</h4></a>
+                <a href="landing/terminos.pdf" style="color:white"><h4>Términos y Condiciones</h4></a>
             </div>
         </div>
     </div>

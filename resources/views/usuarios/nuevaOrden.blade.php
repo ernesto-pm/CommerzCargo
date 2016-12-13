@@ -53,6 +53,8 @@
                             <option value="Camión - 1.5 Toneladas">Camión - 1.5 Toneladas</option>
                             <option value="Camión - 2.5 Toneladas">Camión - 2.5 Toneladas</option>
                             <option value="Camión - 3.5 Toneladas">Camión - 3.5 Toneladas</option>
+                            <option value="Camión - Rabón">Camión - Rabón</option>
+                            <option value="Camión - Torton">Camión - Torton</option>
                             <option value="Trailer 48pies">Trailer 48pies</option>
                             <option value="Trailer 53pies">Trailer 53pies</option>
                             <option value="Trailer Full">Trailer Full</option>

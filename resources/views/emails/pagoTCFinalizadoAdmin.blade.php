@@ -46,6 +46,15 @@ A continuación se encuentran los detalles de el envío:
 <p>
     Tipo de empaque: {{$order->packageType}}
 </p>
+<p>
+    Numero de paquetes:  {{$order->packageNumber}}
+</p>
+<p>
+    Peso de los paquetes: {{$order->packageWeight}} kg
+</p>
+<p>
+    Volumen de los paquetes: {{$order->packageVolume}} m3
+</p>
 <hr>
 <p>
     Nombre del solicitante: {{$order->owner->name}}
@@ -54,5 +63,8 @@ A continuación se encuentran los detalles de el envío:
     Email del solicitante: {{$order->owner->email}}
 </p>
 <p>
-    Teléfono del solicitante: {{$order->owner->personalPhoneNumber}}
+    Teléfono del solicitante (Personal): {{$order->owner->personalPhoneNumber}}
+</p>
+<p>
+    Teléfono del solicitante (Oficina): {{$order->owner->officePhoneNumber}}
 </p>

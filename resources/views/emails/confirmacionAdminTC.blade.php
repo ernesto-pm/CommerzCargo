@@ -43,6 +43,15 @@
 <p>
     Tipo de empaque: {{$order->packageType}}
 </p>
+<p>
+    Numero de paquetes:  {{$order->packageNumber}}
+</p>
+<p>
+    Peso de los paquetes: {{$order->packageWeight}} kg
+</p>
+<p>
+    Volumen de los paquetes: {{$order->packageVolume}} m3
+</p>
 <hr>
 <p>
     Nombre del solicitante: {{$order->owner->name}}
@@ -51,7 +60,10 @@
     Email del solicitante: {{$order->owner->email}}
 </p>
 <p>
-    Teléfono del solicitante: {{$order->owner->personalPhoneNumber}}
+    Teléfono del solicitante (Personal): {{$order->owner->personalPhoneNumber}}
+</p>
+<p>
+    Teléfono del solicitante (Oficina): {{$order->owner->officePhoneNumber}}
 </p>
 
 Este envío esta configurado para ser <b>pagado dentro de Commerzcargo con Conekta</b>

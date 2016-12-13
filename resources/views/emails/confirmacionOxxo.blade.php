@@ -49,4 +49,12 @@ A continuación se encuentran los detalles de tu envío:
 <p>
     Tipo de empaque: {{$order->packageType}}
 </p>
-
+<p>
+    Numero de paquetes:  {{$order->packageNumber}}
+</p>
+<p>
+    Peso de los paquetes: {{$order->packageWeight}} kg
+</p>
+<p>
+    Volumen de los paquetes: {{$order->packageVolume}} m3
+</p>

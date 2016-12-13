@@ -99,6 +99,7 @@
                                                     @endif
                                                 </td>
                                                 <td class="text-center">
+
                                                     @if($order->orderStatus == "Pendiente")
                                                         Solicitada y pendiente de recibir propuesta de admin
                                                     @elseif($order->orderStatus == "Por confirmar")
@@ -107,11 +108,9 @@
                                                         {{$order->orderStatus}}
                                                     @elseif($order->orderStatus == "Pagada")
                                                         {{$order->orderStatus}}
+                                                    @elseif($order->orderStatus == "Pagar al entregar")
+                                                        {{$order->orderStatus}}
                                                     @endif
-
-
-
-
                                                 </td>
                                             </tr>
                                         @endforeach

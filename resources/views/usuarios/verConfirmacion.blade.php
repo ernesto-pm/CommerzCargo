@@ -64,7 +64,7 @@
                     </div>
                     <div class="row">
                         <div class="col-md-4 text-center">
-                            <form method="post" action="/postConfirmarEfectivo">
+                            <form method="post" action="/postConfirmarEfectivo" id="efectivo">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="idOrden" value="{{$order->id}}"/>
                                 <input type="hidden" name="idUsuario" value="{{Auth::user()->id}}"/>
@@ -72,15 +72,15 @@
                             </form>
                         </div>
                         <div class="col-md-4 text-center">
-                            <form method="post" action="/postConfirmarTC">
+                            <form method="post" action="/postConfirmarTC" id="TC">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="idOrden" value="{{$order->id}}"/>
                                 <input type="hidden" name="idUsuario" value="{{Auth::user()->id}}"/>
-                                <input type="submit" value="Pago con TC" class="btn btn-success"/>
+                                <input type="submit" value="Tarjeta de Crédito" class="btn btn-success"/>
                             </form>
                         </div>
                         <div class="col-md-4 text-center">
-                            <form method="post" action="/postConfirmarOxxo">
+                            <form method="post" action="/postConfirmarOxxo" id="Oxxo">
                                 {{ csrf_field() }}
                                 <input type="hidden" name="idOrden" value="{{$order->id}}"/>
                                 <input type="hidden" name="idUsuario" value="{{Auth::user()->id}}"/>
@@ -103,6 +103,26 @@
         </div>
     </div>
 
+    <script>
+        $("#efectivo").submit(function() {
+            $(this).submit(function() {
+                return false;
+            });
+            return true;
+        });
+        $("#TC").submit(function() {
+            $(this).submit(function() {
+                return false;
+            });
+            return true;
+        });
+        $("#Oxxo").submit(function() {
+            $(this).submit(function() {
+                return false;
+            });
+            return true;
+        });
+    </script>
 
 
 
