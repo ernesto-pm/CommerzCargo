@@ -162,7 +162,12 @@ class HomeController extends Controller
     }
 
     public function getOxxoPaymentView($id){
-        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+
+        //lave de pruebas
+        //\Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+
+        // lave de produccion
+        \Conekta\Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
 
         $pago = Payment::find($id);
         //echo $pago;
@@ -239,10 +244,12 @@ class HomeController extends Controller
     public function postCCPayment(Request $request){
 
         // Llave de pruebas
-        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        //\Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
-        //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
+        \Conekta\Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
+
+
 
         $pago = Payment::find($request->pagoID);
         $fecha = strtotime($pago->created_at);
@@ -321,10 +328,10 @@ class HomeController extends Controller
 
     public function postConfirm(Request $data){
         // Llave de pruebas
-        \Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        //\Conekta\Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
-        //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
+        \Conekta\Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
 
         $usuario = User::find($data->idUsuario);
         $orden = Order::find($data->idOrden);
@@ -483,10 +490,10 @@ class HomeController extends Controller
 
     function postConfirmarOxxo(Request $data){
         // Llave de pruebas
-        Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
+        //Conekta::setApiKey('key_HGzz1qsVHwC6TaXQaLc7jg');
 
         // Llave de produccion
-        //Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
+        \Conekta\Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
 
         $usuario = User::find($data->idUsuario);
         $orden = Order::find($data->idOrden);
