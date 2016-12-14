@@ -259,7 +259,7 @@ class HomeController extends Controller
         $orden = Order::find($pago->order_id);
         $confirmacion = $orden->orderConfirmation;
 
-        echo $usuario;
+        //echo $usuario;
 
         try {
             $cargo = \Conekta\Charge::create(array(
@@ -412,7 +412,7 @@ class HomeController extends Controller
         $confirmationOrder = Orderconfirmation::where('order_id',$orden->id)->first();
 
 
-        if($ordenesUsuario.contains($orden)){
+
             if($orden->orderStatus != 'Confirmada'){
                 $orden->orderStatus = "Pago en efectivo";
                 $orden->save();
@@ -446,9 +446,7 @@ class HomeController extends Controller
             }else{
                 return redirect('/home');
             }
-        }else{
-            return redirect('/home');
-        }
+
 
     }
 
@@ -499,7 +497,8 @@ class HomeController extends Controller
         $orden = Order::find($data->idOrden);
         $ordenesUsuario = $usuario->orders;
 
-        $confirmationOrder = Orderconfirmation::where('order_id',$orden->id)->first();
+        $confirmationOrderArray = Orderconfirmation::where('order_id',$orden->id)->get();
+        $confirmationOrder=$confirmationOrderArray[0];
 
 
         if($ordenesUsuario.contains($orden)){
@@ -533,6 +532,7 @@ class HomeController extends Controller
                     Mail::send('emails.confirmacionAdminOxxo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
                         $m->from('notificaciones@commerzcargo.com','CommerzCargo');
                         $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
+                        //$m->to('ernestopm20@gmail.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
                     });
 
                     $cargo = \Conekta\Charge::create(array(
