@@ -42,7 +42,8 @@
 
         // Conekta Public Key
         //Conekta.setPublishableKey('key_KJysdbf6PotS2ut2'); //v3.2
-        Conekta.setPublicKey('key_DCXoYGs3roRdcSsxyqgbHsA'); //v5+
+        //Conekta.setPublicKey('key_DCXoYGs3roRdcSsxyqgbHsA'); //v5+ test
+        Conekta.setPublicKey('key_bxKwK77x3MrNuzrE7XDHXdg'); //produccion!
 
         // ...
     </script>

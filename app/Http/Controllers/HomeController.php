@@ -169,20 +169,30 @@ class HomeController extends Controller
         // lave de produccion
         \Conekta\Conekta::setApiKey('key_1etYun77QbrveayVqG1BsQ');
 
+
         $pago = Payment::find($id);
         //echo $pago;
         $fecha = strtotime($pago->created_at);
         $fecha += 2592000;
 
         $usuario = Auth::user();
-        $orden = Order::find($pago->order_id)->first();
+        $orden = Order::find($pago->order_id);
+
+
 
 
         if($pago->barcodeURL == null || $pago->barcode ==null) {
 
+            /*
             Mail::send('emails.confirmacionAdminOxxo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
                 $m->from('notificaciones@commerzcargo.com','CommerzCargo');
                 $m->to('josecarlos@commerzgroup.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
+            });
+            */
+
+            Mail::send('emails.confirmacionAdminOxxo',['order'=>$orden,'usuario'=>$usuario], function($m) use ($usuario){
+                $m->from('notificaciones@commerzcargo.com','CommerzCargo');
+                $m->to('ernestopm20@gmail.com', 'Admin')->subject('Confirmacíon de orden de envío en Oxxo');
             });
 
             $cargo = \Conekta\Charge::create(array(
@@ -524,7 +534,7 @@ class HomeController extends Controller
                 $fecha += 2592000;
 
                 $usuario = Auth::user();
-                $orden = Order::find($pago->order_id)->first();
+
 
 
                 if($pago->barcodeURL == null || $pago->barcode ==null) {
