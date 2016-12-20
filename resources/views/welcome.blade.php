@@ -14,7 +14,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="#page-top"><img style="height: 100%" class="img-responsive" src="{!! URL::asset('landing/img/logoTexto.png')!!}"></a>
+                <a class="navbar-brand page-scroll" href="/">
+                    <img style="height: 100%" class="img-responsive" src="{!! URL::asset('landing/img/logoTexto.png')!!}" id="imageNormal">
+                    <img style="height: 100%" class="img-responsive" src="{!! URL::asset('landing/img/logoTextoNegro.png')!!}" id="imageAffix">
+                </a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -23,10 +26,10 @@
 
                     @if(Auth::guest())
                         <li>
-                            <a class="page-scroll" href="/registerCarrier">Registro Transportista</a>
+                            <a class="page-scroll" href="/register">Registro Cliente</a>
                         </li>
                         <li>
-                            <a class="page-scroll" href="/register">Registro Cliente</a>
+                            <a class="page-scroll" href="/registroTransportista">Registro Transportista</a>
                         </li>
                         <li>
                             <a class="page-scroll" href="#about">Sobre nosotros</a>
@@ -58,8 +61,11 @@
                 <img style="width:40%;margin: 0 auto;" class="img-responsive" src="{!! URL::asset('landing/img/logo.png')!!}">
                 <p style="color:white;margin-bottom: 30px">Una nueva forma de coordinar tus envíos</p>
                 @if(Auth::guest())
-                    <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Clientes</a>
+                    <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Solicita un Envío</a>
+                <!--
                     <a href="/login" class="btn btn-primary btn-xl page-scroll botonLanding">Transportistas</a>
+
+                    -->
                 @else
                     <a href="/home" class="btn btn-primary btn-xl page-scroll botonLanding">Ir a mi dashboard</a>
                 @endif
@@ -76,6 +82,62 @@
                 </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 text-center">
+                    Coordinamos el envío de tu mercancía dentro del Valle de México y entre ciudades del país!
+                    <br>
+                    <br>
+                    Nos adaptamos a tus necesidades, brindando un servicio personalizado y una flota a tu medida!
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="service-box">
+                        <img class="img img-responsive" src="landing/img/vehiculoLigero.png">
+                        <h3 class="text-center">Vehículo Ligero</h3>
+                        <p>
+                            <b>Carga:</b> De 500 a 800 kg
+                            <br>
+                            <b>Volúmen:</b> De 2 a 3 m3
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img class="img img-responsive" src="landing/img/camion.png">
+                        <h3 class="text-center">Camión</h3>
+                        <p>
+                            <b>Carga:</b> De 1.5 a 3.5 Ton
+                            <br>
+                            <b>Volúmen:</b> De 5 a 12 m3
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img class="img img-responsive" src="landing/img/rabonytorton.png">
+                        <h3 class="text-center">Rabón y Torton</h3>
+                        <p>
+                            <b>Carga:</b> De 8 a 16 Ton
+                            <br>
+                            <b>Volúmen:</b> De 30 a 40 m3
+                        </p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 text-center">
+                    <div class="service-box">
+                        <img class="img img-responsive" src="landing/img/trailer.png">
+                        <h3 class="text-center">Trailer</h3>
+                        <p>
+                            <b>Carga:</b> De 28 a 30 Ton
+                            <br>
+                            <b>Volúmen:</b> De 90 a 98 m3
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <br>
             <div class="row">
                 <div class="col-lg-3 col-md-6 text-center">
                     <div class="service-box">
@@ -236,4 +298,5 @@
 
 
     </body>
+
 @endsection

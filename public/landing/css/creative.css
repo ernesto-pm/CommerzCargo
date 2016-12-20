@@ -5,8 +5,6 @@
  */
 
 
-
-
 #about{
 	padding: 70px;
 }
@@ -161,10 +159,22 @@ aside {
         background-color: #fff;
     }
 
-    .navbar-default.affix .navbar-header .navbar-brand {
-        font-size: 14px;
-        color: #f05f40;
+    .navbar-default #imageAffix{
+        display: none !important;
     }
+
+    .navbar-default #imageNormal{
+        display: block !important;
+    }
+
+    .navbar-default.affix #imageNormal{
+        display: none !important;
+    }
+
+    .navbar-default.affix #imageAffix{
+        display: block !important;
+    }
+
 
     .navbar-default.affix .navbar-header .navbar-brand:hover,
     .navbar-default.affix .navbar-header .navbar-brand:focus {

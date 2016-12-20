@@ -53,6 +53,8 @@
 
     Route::post('/autorizarEnvio/{id}','HomeController@autorizarEnvio');
 
+    Route::get('/registroTransportista','FrontendController@registroTransportista');
+
     Route::get('/', function () {
         return view('welcome');
     });

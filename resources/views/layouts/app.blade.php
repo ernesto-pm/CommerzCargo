@@ -180,5 +180,20 @@
 
 
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
+
+<script>
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 50) {
+            console.log("holi");
+            $('#custom-nav').addClass('affix');
+            $(".navbar-fixed-top").addClass("top-nav-collapse");
+            $('.navbar-brand img').attr('src','newImage.jpg'); //change src
+        } else {
+            $('#custom-nav').removeClass('affix');
+            $(".navbar-fixed-top").removeClass("top-nav-collapse");
+            $('.navbar-brand img').attr('src','OldImage.jpg')
+        }
+    });
+</script>
 </body>
 </html>

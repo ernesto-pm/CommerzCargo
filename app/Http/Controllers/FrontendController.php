@@ -20,5 +20,9 @@ class FrontendController extends Controller
         return view('auth.registerCarrier');
     }
 
+    function registroTransportista(){
+        return view('frontend.transportistaComingSoon');
+    }
+
 
 }
