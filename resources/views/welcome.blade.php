@@ -15,8 +15,7 @@
                     <span class="icon-bar"></span>
                 </button>
                 <a class="navbar-brand page-scroll" href="/">
-                    <img style="height: 100%" class="img-responsive" src="{!! URL::asset('landing/img/logoTexto.png')!!}" id="imageNormal">
-                    <img style="height: 100%" class="img-responsive" src="{!! URL::asset('landing/img/logoTextoNegro.png')!!}" id="imageAffix">
+                    <img style="height: 100%" class="img-responsive" src="{!! URL::asset('landing/img/logoTexto.png')!!}" id="logoHome">
                 </a>
             </div>
 
@@ -84,10 +83,13 @@
 
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 text-center">
-                    Coordinamos el envío de tu mercancía dentro del Valle de México y entre ciudades del país!
-                    <br>
-                    <br>
-                    Nos adaptamos a tus necesidades, brindando un servicio personalizado y una flota a tu medida!
+                    <p style="font-size: 18px">
+                        Coordinamos el envío de tu mercancía dentro del Valle de México y entre ciudades del país!
+                        <br>
+                        <br>
+                        Nos adaptamos a tus necesidades, brindando un servicio personalizado y una flota a tu medida!
+                    </p>
+
                 </div>
             </div>
 

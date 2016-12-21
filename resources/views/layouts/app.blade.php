@@ -48,6 +48,7 @@
         // ...
     </script>
 
+
 </head>
 <body class="page-header-fixed page-sidebar-closed-hide-logo page-content-white">
 <div class="page-header navbar navbar-fixed-top">
@@ -179,21 +180,12 @@
     <script src="{!! URL::asset('theme/assets/pages/scripts/components-date-time-pickers.js')!!}" type="text/javascript"></script>
 
 
+
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCKihndc_Bf0USH4YeHDWAN6t3QM1EanO8&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
     {{-- <script src="{{ elixir('js/app.js') }}"></script> --}}
 
-<script>
-    $(window).scroll(function() {
-        if ($(".navbar").offset().top > 50) {
-            console.log("holi");
-            $('#custom-nav').addClass('affix');
-            $(".navbar-fixed-top").addClass("top-nav-collapse");
-            $('.navbar-brand img').attr('src','newImage.jpg'); //change src
-        } else {
-            $('#custom-nav').removeClass('affix');
-            $(".navbar-fixed-top").removeClass("top-nav-collapse");
-            $('.navbar-brand img').attr('src','OldImage.jpg')
-        }
-    });
-</script>
 </body>
 </html>

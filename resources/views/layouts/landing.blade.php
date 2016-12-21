@@ -68,6 +68,9 @@
 
 @yield('content')
 
+
+
+
 <!-- jQuery -->
 <script src="{!! URL::asset('landing/js/jquery.js')!!}"></script>
 <script src="{!! URL::asset('landing/js/bootstrap.min.js')!!}"></script>
@@ -75,3 +78,13 @@
 <script src="{!! URL::asset('landing/js/jquery.fittext.js')!!}"></script>
 <script src="{!! URL::asset('landing/js/wow.min.js')!!}"></script>
 <script src="{!! URL::asset('landing/js/creative.js')!!}"></script>
+
+<script>
+    $(window).scroll(function() {
+        if ($(".navbar").offset().top > 95) {
+            $('.navbar-brand img').attr('src','landing/img/logoTextoNegro.png'); //change src
+        } else {
+            $('.navbar-brand img').attr('src','landing/img/logoTexto.png');
+        }
+    });
+</script>
