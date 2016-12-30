@@ -7,6 +7,10 @@
             height: 300px;
 
         }
+
+        #map2{
+            height: 300px;
+        }
         .controls {
             margin-top: 10px;
             border: 1px solid transparent;
@@ -30,6 +34,21 @@
         }
 
         #pac-input:focus {
+            border-color: #4d90fe;
+        }
+
+        #pac-input2 {
+            background-color: #fff;
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 11px 0 13px;
+            text-overflow: ellipsis;
+            width: 150px;
+        }
+
+        #pac-input2:focus {
             border-color: #4d90fe;
         }
 
@@ -158,6 +177,8 @@
                         <div class="col-sm-6 text-center">
                             <h3>Origen</h3>
                             <hr>
+                            <input name="originState" type="hidden" id="edoOrigen"/>
+                            <input name="originCity" type="hidden" id="ciudadOrigen"/>
                             <!--
                             <select name="originState" id="edoOrigen" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                 <option value="Aguascalientes">Aguascalientes</option>
@@ -200,7 +221,7 @@
                             <br>
                             -->
                             <div id="map"></div>
-                            <input id="pac-input" class="controls" type="text" placeholder="Search Box">
+                            <input id="pac-input" class="controls" type="text" placeholder="Busqueda">
                             <br>
                             <br>
                             <label for="originCargoService">Servicio de carga</label>
@@ -214,6 +235,8 @@
                         <div class="col-sm-6 text-center">
                             <h3>Destino</h3>
                             <hr>
+                            <input name="destinationState" type="hidden" id="edoDestino"/>
+                            <input name="destinationCity" type="hidden" id="ciudadDestino"/>
                             <!--
                             <select name="destinationState" id="edoDestino" class="form-control todo-taskbody-tags select2-hidden-accessible" tabindex="-1" aria-hidden="true">
                                 <option value="Aguascalientes">Aguascalientes</option>
@@ -254,7 +277,8 @@
                             <br>
                             <br>
                             -->
-
+                            <div id="map2"></div>
+                            <input id="pac-input2" class="controls" type="text" placeholder="Busqueda">
                             <br>
                             <br>
                             <label for="destinationCargoService">Servicio de descarga</label>
@@ -291,8 +315,8 @@
         function initAutocomplete() {
 
             var map = new google.maps.Map(document.getElementById('map'), {
-                center: {lat: -33.8688, lng: 151.2195},
-                zoom: 13,
+                center: {lat: 19.2464696, lng: -99.10134979999998},
+                zoom: 5,
                 mapTypeId: google.maps.MapTypeId.ROADMAP,
                 mapTypeControl: false
             });
@@ -341,17 +365,23 @@
                         position: place.geometry.location
                     }));
 
-                    console.log(place);
+                    //console.log(place);
+
+                    //document.getElementById("edoDestino").value = "";
+                    //document.getElementById("ciudadDestino").value = "";
+
 
                     for (var ac = 0; ac < place.address_components.length; ac++) {
                         var component = place.address_components[ac];
 
                         switch(component.types[0]) {
                             case 'locality':
-                                console.log(component);
+                                console.log('locality',component);
+                                document.getElementById("edoOrigen").value = component.long_name;
                                 break;
                             case 'administrative_area_level_3':
                                 console.log(component);
+                                document.getElementById("ciudadOrigen").value = component.long_name;
                                 break;
                             case 'country':
                                 console.log(component);
@@ -368,9 +398,112 @@
                 });
                 map.fitBounds(bounds);
             });
-            // [END region_getplaces]
+
+            var map2 = new google.maps.Map(document.getElementById('map2'), {
+                center: {lat: 19.2464696, lng: -99.10134979999998},
+                zoom: 5,
+                mapTypeId: google.maps.MapTypeId.ROADMAP,
+                mapTypeControl: false
+            });
+            var input2 = document.getElementById('pac-input2');
+            var searchBox2 = new google.maps.places.SearchBox(input2);
+            map2.controls[google.maps.ControlPosition.TOP_LEFT].push(input2);
+
+            // Bias the searchBox2 results towards current map2's viewport.
+            map2.addListener('bounds_changed', function() {
+                searchBox2.setBounds(map2.getBounds());
+            });
+
+            var markers = [];
+            // [START region_getplaces]
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox2.addListener('places_changed', function() {
+                var places = searchBox2.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+
+                // Clear out the old markers.
+                markers.forEach(function(marker) {
+                    marker.setMap(null);
+                });
+                markers = [];
+
+                // For each place, get the icon, name and location.
+                var bounds = new google.maps.LatLngBounds();
+                places.forEach(function(place) {
+                    var icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25)
+                    };
+
+                    // Create a marker for each place.
+                    markers.push(new google.maps.Marker({
+                        map: map2,
+                        icon: icon,
+                        title: place.name,
+                        position: place.geometry.location
+                    }));
+
+                    //console.log(place);
+
+                    //document.getElementById("edoDestino").value = "";
+                    //document.getElementById("ciudadDestino").value = "";
+
+
+                    for (var ac = 0; ac < place.address_components.length; ac++) {
+                        var component = place.address_components[ac];
+
+                        switch(component.types[0]) {
+                            case 'locality':
+                                console.log('locality',component);
+                                document.getElementById("edoDestino").value = component.long_name;
+                                break;
+                            case 'administrative_area_level_3':
+                                console.log(component);
+                                document.getElementById("ciudadDestino").value = component.long_name;
+                                break;
+                            case 'country':
+                                console.log(component);
+                                break;
+                        }
+                    };
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map2.fitBounds(bounds);
+            });
+
+
+
+
+
+
+
         }
 
+
+    </script>
+
+    <script>
+        $(document).ready(function() {
+            $(window).keydown(function(event){
+                if(event.keyCode == 13) {
+                    event.preventDefault();
+                    return false;
+                }
+            });
+        });
 
     </script>
 
