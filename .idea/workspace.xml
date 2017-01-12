@@ -3,7 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a22757c3-ac30-4859-aa43-56d19408f7fb" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/resources/views/usuarios/nuevaOrden.blade.php" afterPath="$PROJECT_DIR$/resources/views/usuarios/nuevaOrden.blade.php" />
     </list>
     <ignored path="CommerzCargo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -38,7 +37,7 @@
       <file leaf-file-name="welcome.blade.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-28.791666">
+            <state vertical-scroll-proportion="0.0">
               <caret line="85" column="43" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
               <folding />
             </state>
@@ -48,31 +47,9 @@
       <file leaf-file-name="nuevaOrden.blade.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/resources/views/usuarios/nuevaOrden.blade.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.9856115">
+            <state vertical-scroll-proportion="0.030470913">
               <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-              <folding>
-                <element signature="e#24917#24953#0#HTML" expanded="true" />
-                <element signature="e#24990#25012#0#HTML" expanded="true" />
-                <element signature="e#25073#25101#0#HTML" expanded="true" />
-                <element signature="e#25206#25234#0#HTML" expanded="true" />
-                <element signature="e#25775#25797#0#HTML" expanded="true" />
-                <element signature="e#25869#25891#0#HTML" expanded="true" />
-                <element signature="e#25952#25980#0#HTML" expanded="true" />
-                <element signature="e#26085#26113#0#HTML" expanded="true" />
-                <element signature="e#26992#27014#0#HTML" expanded="true" />
-                <element signature="e#27085#27108#0#HTML" expanded="true" />
-                <element signature="e#27169#27197#0#HTML" expanded="true" />
-                <element signature="e#27299#27327#0#HTML" expanded="true" />
-                <element signature="e#28658#28680#0#HTML" expanded="true" />
-                <element signature="e#28753#28775#0#HTML" expanded="true" />
-                <element signature="e#28835#28863#0#HTML" expanded="true" />
-                <element signature="e#28958#28986#0#HTML" expanded="true" />
-                <element signature="e#29491#29513#0#HTML" expanded="true" />
-                <element signature="e#29585#29607#0#HTML" expanded="true" />
-                <element signature="e#29667#29695#0#HTML" expanded="true" />
-                <element signature="e#29795#29823#0#HTML" expanded="true" />
-                <element signature="e#30336#30358#0#HTML" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,8 +138,7 @@
   </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectFrameBounds">
-    <option name="x" value="62" />
-    <option name="y" value="65" />
+    <option name="y" value="22" />
     <option name="width" value="1920" />
     <option name="height" value="1133" />
   </component>
@@ -192,6 +168,7 @@
     </navigator>
     <panes>
       <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -434,7 +411,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -496,17 +472,17 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="62" y="65" width="1920" height="1133" extended-state="0" />
-    <editor active="true" />
+    <frame x="0" y="22" width="1920" height="1133" extended-state="6" />
+    <editor active="false" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25239617" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25772098" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25790986" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25790986" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -901,7 +877,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-28.791666">
+        <state vertical-scroll-proportion="0.0">
           <caret line="85" column="43" selection-start-line="85" selection-start-column="43" selection-end-line="85" selection-end-column="43" />
           <folding />
         </state>
@@ -909,31 +885,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/usuarios/nuevaOrden.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.9856115">
+        <state vertical-scroll-proportion="0.030470913">
           <caret line="175" column="0" selection-start-line="175" selection-start-column="0" selection-end-line="175" selection-end-column="0" />
-          <folding>
-            <element signature="e#24917#24953#0#HTML" expanded="true" />
-            <element signature="e#24990#25012#0#HTML" expanded="true" />
-            <element signature="e#25073#25101#0#HTML" expanded="true" />
-            <element signature="e#25206#25234#0#HTML" expanded="true" />
-            <element signature="e#25775#25797#0#HTML" expanded="true" />
-            <element signature="e#25869#25891#0#HTML" expanded="true" />
-            <element signature="e#25952#25980#0#HTML" expanded="true" />
-            <element signature="e#26085#26113#0#HTML" expanded="true" />
-            <element signature="e#26992#27014#0#HTML" expanded="true" />
-            <element signature="e#27085#27108#0#HTML" expanded="true" />
-            <element signature="e#27169#27197#0#HTML" expanded="true" />
-            <element signature="e#27299#27327#0#HTML" expanded="true" />
-            <element signature="e#28658#28680#0#HTML" expanded="true" />
-            <element signature="e#28753#28775#0#HTML" expanded="true" />
-            <element signature="e#28835#28863#0#HTML" expanded="true" />
-            <element signature="e#28958#28986#0#HTML" expanded="true" />
-            <element signature="e#29491#29513#0#HTML" expanded="true" />
-            <element signature="e#29585#29607#0#HTML" expanded="true" />
-            <element signature="e#29667#29695#0#HTML" expanded="true" />
-            <element signature="e#29795#29823#0#HTML" expanded="true" />
-            <element signature="e#30336#30358#0#HTML" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
